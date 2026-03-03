@@ -1,0 +1,31 @@
+{
+  "status": "FAIL",
+  "summary": "VH fails 3 hard gates. HYP-2 lacks falsification criteria, a new user group is introduced that does not exist in the PFD, and one hypothesis expands scope beyond the problem space.",
+  "hard_gates": {
+    "hypothesis_present": "PASS",
+    "falsifiable": "FAIL",
+    "user_traceability": "FAIL",
+    "no_scope_expansion": "FAIL",
+    "no_solutions": "PASS",
+    "metrics_defined": "PASS"
+  },
+  "blocking_issues": [
+    {
+      "gate": "falsifiable",
+      "description": "HYP-2 states 'users will find notifications more actionable' but provides no falsification criteria — no threshold, no measurement, no condition under which the hypothesis is considered false. A hypothesis without falsification criteria cannot be tested.",
+      "location": "HYP-2 — Falsification Criteria"
+    },
+    {
+      "gate": "user_traceability",
+      "description": "HYP-3 references 'Mobile-First Users' as a target group. No such user group (UG-N identifier) exists in PFD-TASKFLOW-NOTIF-001. User groups must be traced to PFD identifiers — new groups may not be introduced.",
+      "location": "HYP-3 — Target Users"
+    },
+    {
+      "gate": "no_scope_expansion",
+      "description": "HYP-4 addresses 'cross-platform notification consistency across web, mobile, and Slack.' The PFD problem statement is scoped to the notification system's priority and role differentiation — cross-platform consistency is a distinct problem not present in the PFD.",
+      "location": "HYP-4"
+    }
+  ],
+  "warnings": [],
+  "completeness_score": 52
+}

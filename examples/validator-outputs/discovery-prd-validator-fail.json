@@ -1,0 +1,38 @@
+{
+  "status": "FAIL",
+  "summary": "DPRD fails 4 hard gates. Requirements use aspirational language instead of SHALL statements, non-goals are absent, upstream EL traceability is missing, and one requirement expands scope beyond the frozen upstream artifacts.",
+  "hard_gates": {
+    "problem_definition": "PASS",
+    "goals": "PASS",
+    "scope": "FAIL",
+    "requirements": "FAIL",
+    "constraints": "PASS",
+    "readiness": "PASS",
+    "upstream_traceability": "FAIL",
+    "no_scope_expansion": "FAIL"
+  },
+  "blocking_issues": [
+    {
+      "gate": "scope",
+      "description": "§4 Non-Goals is empty. The spec requires at least one explicit non-goal. An empty non-goals section means the scope is unbounded — anything not explicitly required could be considered in scope.",
+      "location": "§4 Non-Goals"
+    },
+    {
+      "gate": "requirements",
+      "description": "Functional requirements use language like 'the system should classify notifications' and 'the system could provide role-based rules.' Requirements must use 'The system SHALL ...' language. Aspirational or conditional language (should, could, may) does not constitute a requirement.",
+      "location": "§6 Functional Requirements — FR-1 through FR-7"
+    },
+    {
+      "gate": "upstream_traceability",
+      "description": "§7 Upstream Artifact References lists PFD-TASKFLOW-NOTIF-001, VH-TASKFLOW-NOTIF-001, and AR-TASKFLOW-NOTIF-001 but does not reference an Experiment Log. The EL is a mandatory upstream artifact for DPRD generation — its absence or omission from traceability is a hard gate failure.",
+      "location": "§7 Upstream Artifact References"
+    },
+    {
+      "gate": "no_scope_expansion",
+      "description": "FR-12 requires 'AI-based notification summarization using natural language generation.' No upstream PFD, VH, AR, or EL artifact defines, tests, or supports NLG summarization as a requirement. This requirement introduces new scope not present in any upstream artifact.",
+      "location": "§6 Functional Requirements — FR-12"
+    }
+  ],
+  "warnings": [],
+  "completeness_score": 38
+}

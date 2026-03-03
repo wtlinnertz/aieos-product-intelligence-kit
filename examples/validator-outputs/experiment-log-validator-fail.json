@@ -1,0 +1,36 @@
+{
+  "status": "FAIL",
+  "summary": "EL fails 3 hard gates. One experiment conclusion is contradicted by its findings, a high-risk assumption is silently omitted from coverage, and two impact assessments are missing.",
+  "hard_gates": {
+    "experiment_present": "PASS",
+    "assumption_traceability": "PASS",
+    "evidence_based_conclusions": "FAIL",
+    "impact_assessed": "FAIL",
+    "no_scope_expansion": "PASS",
+    "no_solutions": "FAIL"
+  },
+  "blocking_issues": [
+    {
+      "gate": "evidence_based_conclusions",
+      "description": "EXP-2 raw findings state: '6 of 10 users reported no change in notification management behavior after the prototype test.' The documented conclusion is 'Confirmed.' A majority reporting no change does not support a Confirmed conclusion — this is contradicted by the findings and must be corrected.",
+      "location": "EXP-2 — Raw Findings vs. Conclusion"
+    },
+    {
+      "gate": "impact_assessed",
+      "description": "ASM-5 (High risk) was Invalidated by EXP-4. No impact assessment is present for ASM-5. ASM-9 (High risk) was Partially Confirmed by EXP-6. No impact assessment is present for ASM-9. Both require documented impact assessments with affected VH hypothesis IDs.",
+      "location": "EXP-4 (ASM-5), EXP-6 (ASM-9)"
+    },
+    {
+      "gate": "no_solutions",
+      "description": "The synthesis section states: 'Based on these findings, the team recommends implementing a rules engine with three priority tiers.' This is a solution proposal. The EL must not contain implementation recommendations — only evidence-based conclusions and a proceed/pivot/pause recommendation.",
+      "location": "§6 Synthesis — Recommendation"
+    }
+  ],
+  "warnings": [
+    {
+      "description": "ASM-3 (High risk) is not referenced by any experiment. The assumption coverage summary does not acknowledge this gap. High-risk assumptions must either be tested or explicitly noted as untested with a reason.",
+      "location": "Assumption Coverage Summary"
+    }
+  ],
+  "completeness_score": 41
+}

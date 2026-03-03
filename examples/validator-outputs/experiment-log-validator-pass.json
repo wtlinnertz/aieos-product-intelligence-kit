@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "summary": "EL-TASKFLOW-NOTIF-001 satisfies all 6 hard gates. Evidence is grounded in findings, all high-risk assumptions are addressed, and the proceed recommendation is supported.",
+  "hard_gates": {
+    "experiment_present": "PASS",
+    "assumption_traceability": "PASS",
+    "evidence_based_conclusions": "PASS",
+    "impact_assessed": "PASS",
+    "no_scope_expansion": "PASS",
+    "no_solutions": "PASS"
+  },
+  "blocking_issues": [],
+  "warnings": [
+    {
+      "description": "EXP-3 confidence level is 'Low' due to a small sample size (n=8 user interviews). This is a legitimate limitation that the EL documents correctly. The DPRD should reflect this uncertainty in the relevant requirements.",
+      "location": "EXP-3 — Confidence Level, Limitations"
+    },
+    {
+      "description": "ASM-8 from the AR is listed as 'not tested — medium risk, deprioritized.' The EL notes this explicitly, which satisfies the hard gate. However, this assumption remains unvalidated and should be flagged in the DPRD open questions.",
+      "location": "Assumption Coverage Summary — ASM-8"
+    }
+  ],
+  "completeness_score": 91
+}

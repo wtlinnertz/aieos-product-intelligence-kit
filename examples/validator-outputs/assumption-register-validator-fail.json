@@ -1,0 +1,31 @@
+{
+  "status": "FAIL",
+  "summary": "AR fails 3 hard gates. Two assumptions are missing required fields, one high-risk assumption has no validation plan, and two assumptions cannot be traced to PFD or VH content.",
+  "hard_gates": {
+    "assumption_inventory": "FAIL",
+    "source_traceability": "FAIL",
+    "risk_assessment": "PASS",
+    "high_risk_validation": "FAIL",
+    "no_scope_expansion": "PASS",
+    "no_solutions": "PASS"
+  },
+  "blocking_issues": [
+    {
+      "gate": "assumption_inventory",
+      "description": "ASM-4 is missing the 'impact if false' field. ASM-9 is missing both 'current evidence' and 'validation method' fields. All required fields must be present for every assumption.",
+      "location": "ASM-4, ASM-9"
+    },
+    {
+      "gate": "source_traceability",
+      "description": "ASM-6 references 'VH §4' but the frozen VH does not have a §4 — it has sections labeled by hypothesis ID. ASM-11 lists no source reference at all. Every assumption must trace to a specific, verifiable location in the frozen PFD or VH.",
+      "location": "ASM-6, ASM-11"
+    },
+    {
+      "gate": "high_risk_validation",
+      "description": "ASM-3 is rated High risk but has no entry in the Validation Plan. Every high-risk assumption must have a concrete validation method in the plan.",
+      "location": "ASM-3 — Validation Plan"
+    }
+  ],
+  "warnings": [],
+  "completeness_score": 44
+}
