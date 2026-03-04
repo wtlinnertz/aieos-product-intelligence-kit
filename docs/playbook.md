@@ -8,17 +8,17 @@ This playbook defines the end-to-end process for transforming strategic intent i
 
 The Product Intelligence Kit produces five artifact types in a strict linear sequence. Each artifact must be generated, validated, and frozen before the next can begin.
 
-An optional pre-intake classification step routes work to the appropriate process depth.
+A mandatory classification step routes incoming work before any discovery investment begins.
 
 ```
 Work Request (incoming)
         │
         ▼
 ┌─────────────────────────┐
-│  Work Classification    │  Step 0a: Classify and route (utility prompt)
-│  (optional)             │
+│  Work Classification    │  Step 0: Classify and route (required)
+│  Record                 │  prompt → validate → freeze
 └────────┬────────────────┘
-         │ route to discovery
+         │ routes to discovery (Full or Targeted depth)
          ▼
 Discovery Intake (human input)
         │
@@ -59,19 +59,37 @@ Discovery Intake (human input)
 
 ---
 
+## Step 0: Work Classification
+
+**What:** Classify the incoming work request and produce a frozen routing decision before any discovery investment begins.
+
+**Prompt:** `docs/prompts/work-classification-prompt.md`
+**Spec:** `docs/specs/work-classification-spec.md`
+**Template:** `docs/artifacts/work-classification-template.md`
+**Validator:** `docs/validators/work-classification-validator.md`
+**Gate:** Validator PASS + human freeze
+**Output:** Frozen Work Classification Record
+
+### Steps
+
+1. Provide the work request to `work-classification-prompt.md` — it produces a completed `work-classification-template.md`
+2. Human reviews the AI-produced record and corrects any errors
+3. Run `work-classification-validator.md` against the record
+4. Fix any blocking issues; re-run until PASS
+5. Human completes the Freeze Declaration
+6. **Route based on Discovery Depth:**
+   - **Full or Targeted** → proceed to Discovery Intake Form (this kit)
+   - **None** → route to Engineering Execution Kit, Engineering Triage, or Incident Management as declared; stop here
+
+Not all work enters this kit. Bugs, tech debt, and incident response bypass PIK entirely. The classification record is the evidence that the routing decision was made deliberately.
+
+The frozen classification record is referenced by the EEK Kit Entry Gate as confirmation that the work was classified before entering EEK.
+
+---
+
 ## Utility Prompts
 
 The kit includes utility prompts that support the artifact flow but do not produce governed artifacts.
-
-### Work Classification
-
-**Prompt:** `docs/prompts/work-classification-prompt.md`
-
-**When to use:** Before filling the Discovery Intake Form. Determines whether incoming work needs full discovery, targeted discovery, or should be routed elsewhere (engineering triage, incident management, etc.).
-
-**Output:** Classification (Feature / Enhancement / Bug / Compliance / Tech Debt / Incident Response / Research), recommended discovery depth, and routing decision.
-
-Not all work needs full discovery. Bugs, tech debt, and incident response bypass this kit entirely.
 
 ### Brownfield Analysis
 

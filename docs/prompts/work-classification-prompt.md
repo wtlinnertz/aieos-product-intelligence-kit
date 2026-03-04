@@ -74,45 +74,68 @@ Provide a clear routing recommendation:
 
 ## Output Format
 
-```
-## Classification
+Produce a completed `work-classification-template.md`. Use the exact template structure. Fill in every field — do not leave blank values or write "TBD".
+
+```markdown
+# Work Classification Record
+
+## Document Control
+
+- Record ID: WCR-{YYYY}-{NNN}
+- Date: {date}
+- Classified By: {AI-assisted — human review required}
+- Work Request Summary: {1-2 sentences describing the incoming work in concrete terms}
+
+## Classification Decision
 
 | Field | Value |
 |-------|-------|
-| Work Request | {brief summary} |
-| Primary Type | {Feature / Enhancement / Bug / Compliance / Tech Debt / Incident Response / Research} |
+| Primary Type | {exactly one: Feature / Enhancement / Bug / Compliance / Tech Debt / Incident Response / Research} |
 | Confidence | {High / Medium / Low} |
 | Discovery Depth | {Full / Targeted / None} |
+| Route To | {exactly one: Product Intelligence Kit / Engineering Execution Kit (direct) / Engineering Triage / Incident Management} |
+| Intake Form | {Discovery Intake Form / Product Brief / None} |
 
-## Rationale
+## Justification
 
-{Why this classification was chosen — 2-3 sentences}
+{Why this classification was chosen. Reference at least one specific characteristic of the work request. 2-4 sentences. Do not merely restate the type.}
 
-## Recommended Artifacts
-
-{Which artifacts to produce, or "None — route to engineering"}
+## Artifact Requirements
 
 | Artifact | Required | Rationale |
 |----------|----------|-----------|
-| Problem Framing Document | {Yes/No} | {why} |
-| Value Hypothesis | {Yes/No} | {why} |
-| Assumption Register | {Yes/No} | {why} |
-| Experiment Log | {Yes/No} | {why} |
-| Discovery PRD | {Yes/No} | {why} |
+| Problem Framing Document | {Yes / No} | {why} |
+| Value Hypothesis | {Yes / No} | {why} |
+| Assumption Register | {Yes / No} | {why} |
+| Experiment Log | {Yes / No} | {why} |
+| Discovery PRD | {Yes / No} | {why} |
 
 ## Risk Flags
 
-{Risks of under-classification or mis-routing}
+{Risks of under-classification for this specific work request. State "None identified" if none apply. Do not leave blank.}
 
-## Routing
+## Completeness Checklist
 
-| Field | Value |
-|-------|-------|
-| Route to | {Product Intelligence Kit / Engineering Execution Kit / Engineering Triage / Incident Management} |
-| Intake form | {Discovery Intake Form / Product Brief / None} |
-| Additional principles | {Include `compliance-discovery-principles.md` if Compliance type / None} |
-| Stakeholders | {who should be involved} |
+- [x] Record ID and date are present
+- [x] Work request is summarized concisely
+- [x] Primary type is exactly one value from the taxonomy
+- [x] Confidence, Discovery Depth, and Route To are all filled
+- [x] Justification goes beyond restating the classification
+- [x] Artifact requirements are consistent with Discovery Depth
+- [x] Risk flags are addressed (or explicitly noted as none)
+- [x] No solution proposals or requirements are present
+
+## Freeze Declaration
+
+This classification record is validated and frozen. The routing decision is final. If the classification changes, a new record must be created.
+
+- Validated Against: `work-classification-spec.md`
+- Validation Result: {PASS after human reviews and runs validator}
+- Frozen By: {human completes}
+- Date: {human completes}
 ```
+
+The human reviews the AI-produced record, corrects any errors, runs `work-classification-validator.md` against it, and completes the Freeze Declaration before using it to gate entry into the Discovery Intake Form.
 
 ## Constraints
 
@@ -126,4 +149,4 @@ Provide a clear routing recommendation:
 
 Use this prompt at the very beginning of the intake process — before filling the Discovery Intake Form. It answers: "Does this work request need full product discovery, or should it be routed elsewhere?"
 
-This is a **utility prompt** — it does not produce a governed artifact. Its output is a routing decision that determines which process the work follows.
+This prompt produces a **governed artifact** — the Work Classification Record. The record is validated against `work-classification-spec.md` and frozen before the Discovery Intake Form is started. It is not advisory; it is a required gate.
