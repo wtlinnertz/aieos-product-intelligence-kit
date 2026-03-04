@@ -37,14 +37,15 @@ Each artifact type has exactly four governing files: spec, template, prompt, val
 
 ## Utility Prompts
 
-Six utility prompts support the flow but do not produce governed artifacts:
+Five utility prompts support the flow but do not produce governed artifacts:
 
-- **Work Classification** (`work-classification-prompt.md`) — Classifies incoming work and routes to appropriate process
 - **Brownfield Analysis** (`brownfield-analysis-prompt.md`) — Analyzes existing systems to pre-fill intake forms
 - **Stakeholder Alignment** (`stakeholder-alignment-prompt.md`) — Surfaces and classifies stakeholder conflicts
 - **Assumption Stress Test** (`assumption-stress-test-prompt.md`) — Adversarial analysis of assumptions before experiments
 - **Cross-Initiative Conflict** (`cross-initiative-conflict-prompt.md`) — Detects assumption conflicts across parallel initiatives
 - **Initiative Prioritization** (`initiative-prioritization-prompt.md`) — Compares and ranks competing initiatives
+
+Note: Work Classification is a **governed artifact** (Step 0), not a utility prompt. It has a spec, template, prompt, and validator. See Artifact Flow below.
 
 ## Key Rules
 
@@ -54,12 +55,12 @@ Six utility prompts support the flow but do not produce governed artifacts:
 - **Separate generation and validation** — different AI sessions to prevent self-validation bias
 - **No scope expansion** — downstream artifacts must not expand scope beyond upstream
 - **No inferred information** — mark missing information explicitly, do not fill gaps
-- **Governance model sync** — `docs/governance-model.md` must remain byte-for-byte identical across all AIEOS kits. When updating, update all kits simultaneously. This file is a shared contract — drift between kits breaks structural compatibility. See governance-model.md §15 for versioning and change protocol.
+- **Governance model sync** — `docs/governance-model.md` is a synchronized copy of `aieos-spec/governance-model.md`, which is the canonical authority. Do not edit the kit copy directly — update `aieos-spec` first, then sync all kit copies to match exactly. See governance-model.md §15 for versioning and change protocol.
 
 ## Artifact Flow
 
 ```
-Work Classification (optional) → route to discovery
+Step 0: Work Classification Record → validate → freeze → route
 Discovery Intake (human) → validate intake → PFD → validate → freeze
                     → VH → validate → freeze
                     → AR → validate → freeze → [stress test]
