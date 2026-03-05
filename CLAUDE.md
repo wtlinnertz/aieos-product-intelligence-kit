@@ -71,7 +71,7 @@ Discovery Intake (human) → validate intake → PFD → validate → freeze
 ## Boundary Contracts
 
 - **Upstream:** Discovery Intake Form validated against `docs/specs/discovery-intake-spec.md` (6 hard gates). This is the upstream boundary contract — upstream teams can produce validated intake artifacts independently.
-- **Downstream:** Produces a frozen Discovery PRD that satisfies the Engineering Execution Kit's PRD specification (8 hard gates). The DPRD is delivered as `docs/sdlc/01-prd.md` in the consuming project and validated by the EEK's `prd-validator.md` as an acceptance check. See `docs/playbook.md` §Downstream Handoff for full mechanics and cross-kit re-entry protocol.
+- **Downstream:** Produces a frozen Discovery PRD that satisfies the Engineering Execution Kit's PRD specification (8 hard gates). The DPRD is delivered as `docs/sdlc/01-prd.md` in the consuming project and validated by the EEK's `prd-validator.md` as an acceptance check. See `docs/playbook.md` §Downstream Handoff for full mechanics and cross-kit re-entry protocol. Note: EEK requires a **Kit Entry Record** (Step 0 gate) before artifact generation begins — teams receiving the DPRD via Path A should expect this gate and have a classification record or justification ready.
 
 ## File Naming
 
@@ -89,3 +89,9 @@ Discovery Intake (human) → validate intake → PFD → validate → freeze
 - Read the governance model (`docs/governance-model.md`) for structural rules
 - Check `docs/how-to-use-with-ai.md` for session setup instructions
 - Reference `examples/` for a complete worked example
+
+## Building or Auditing AIEOS Kits
+
+- `aieos-spec/docs/kit-structure-standard.md` — compliance checklist for building and auditing kits
+- `aieos-spec/docs/philosophy.md` — design rationale for governance model decisions
+- `aieos-spec/docs/layer-model.md` — seven-layer model and kit registry

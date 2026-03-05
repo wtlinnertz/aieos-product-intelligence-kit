@@ -387,6 +387,8 @@ When the Strategic Direction Kit is implemented, a formal handoff contract shoul
 | EL | After validation PASS + human approval | DPRD generation (or pivot/pause decision) |
 | DPRD | After validation PASS + human approval | Handoff to Engineering Execution Kit |
 
+> **Freeze semantics:** A freeze is a human commitment, not a technical lock. Nothing prevents editing a Markdown file after it is frozen. The enforcement mechanism is the Git commit that immediately follows the freeze declaration — that commit is the audit trail. **Frozen artifacts must be committed immediately on approval.** The commit message should identify the artifact and its status (e.g., `docs: freeze PFD-PAYMENTS-001`). If a frozen artifact is edited without following the re-entry protocol, the Git history exposes the deviation.
+
 ---
 
 ## Re-Entry Protocol
