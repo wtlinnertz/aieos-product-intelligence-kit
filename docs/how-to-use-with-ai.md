@@ -32,6 +32,22 @@ Include these files in the AI session context:
 3. The **artifact** to be validated
 4. All **frozen upstream artifacts** (for traceability checks)
 
+#### Starting a Validation Session — Step by Step
+
+Separate sessions is the rule. Here is what "separate session" means operationally:
+
+1. **End the generation session.** Close the conversation or start a new one — do not continue in the same thread.
+2. **Open a fresh conversation.** No prior context should carry over. If your AI tool has project-level instructions (CLAUDE.md), those are fine — they don't contain artifact content.
+3. **Do not paste generation inputs.** The generation session included the prompt, spec, template, and principles. Do not include any of these in the validation session. The validator is the only behavior instruction needed.
+4. **Paste in this order:**
+   - The spec (`{type}-spec.md`)
+   - The validator (`{type}-validator.md`)
+   - The frozen upstream artifacts (PFD, VH, AR, EL as applicable for traceability checks)
+   - The artifact to validate
+5. **Give a single instruction:** "Validate this artifact against the spec and validator. Output JSON only."
+6. **Review the output** — if status is FAIL, fix only the blocking issues listed. Do not redesign.
+7. **Re-run in a new session** if you make fixes (same rules apply).
+
 ### For Utility Prompt Sessions
 
 Include these files in the AI session context:
