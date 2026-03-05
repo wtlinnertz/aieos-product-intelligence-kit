@@ -1,5 +1,7 @@
 # Compliance Discovery Principles
 
+Version: v1.0
+
 This document provides interpretive guidance for using the Product Intelligence Kit when the initiative is driven by regulatory, legal, or policy requirements. It is input material for artifact generation — not a governed artifact itself.
 
 These principles do not replace or override the standard product discovery principles. They provide additional context for how standard artifact sections should be interpreted when the initiative is compliance-driven.
@@ -134,3 +136,17 @@ Compliance evidence often comes from legal review and regulatory guidance rather
 - **The artifact flow is unchanged** — PFD → VH → AR → EL → DPRD sequence is required
 
 This document provides interpretive guidance for how to fill the standard sections with compliance-appropriate content. It does not create exceptions to the governance model.
+
+---
+
+## Enforcement Mapping
+
+| Rule Category | Enforced By |
+|---------------|-------------|
+| Regulation as input (§1) — compliance is not subject to pivot/pause | `work-classification-spec.md` §work_type hard gate (classified as Compliance routes to discovery); `experiment-log-spec.md` §recommendation hard gate (proceed/pivot/pause applies to approach, not regulation itself) |
+| Legal interpretation as assumption (§2) | `assumption-register-spec.md` §assumption_completeness hard gate (regulatory interpretation assumptions must be documented) |
+| External deadlines as constraints (§3) | `discovery-prd-spec.md` §constraints hard gate |
+| Requirements traceability to regulatory clauses (DPRD §) | `discovery-prd-spec.md` §traceability hard gate |
+| Non-negotiable requirements labeled as regulatory mandates | `discovery-prd-spec.md` §requirements hard gate |
+
+Rules providing contextual guidance (§4 over-compliance, §5 evidence standards) are advisory — they inform artifact quality without dedicated hard gates.

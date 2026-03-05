@@ -628,6 +628,63 @@ If the situation involves a frozen artifact that must change due to external inp
 
 ---
 
+## Amendment Procedure
+
+A frozen artifact may be corrected in place without re-validation when **all** of the following criteria are met:
+
+1. The correction does not affect any field evaluated by a hard gate.
+2. The correction does not change scope, decisions, owners, or technical specifications.
+3. The correction does not affect any field referenced by a downstream artifact.
+
+**Procedure:** Make the correction and add an Amendment Log entry to the artifact's Document Control section: date, what changed, materiality criterion cited, and who authorized the change. No re-validation is required.
+
+**If there is any ambiguity** about whether a change is non-material, treat it as material and use the Re-Entry Protocol. The amendment path must not become a workaround for the re-entry protocol.
+
+---
+
+## Receiving Escalations
+
+This kit may receive escalations from downstream layers. Escalation is an assessed recommendation — it is not an automatic re-entry trigger.
+
+### Trigger 2 — Recurring Reliability Pattern (from RRK)
+
+**Signal:** The Reliability & Resilience Kit (Layer 6) has identified a recurring root cause class across three or more review periods for a service that traces to a product decision in scope of this kit.
+
+**What to do:**
+1. Receive the escalation record from the RRK team. It will include: trigger type, triggering artifact ID (an RHR or IR), signal description, and recommended action.
+2. Run a new Work Classification against the escalation description. The question is: does this recurring pattern warrant a new discovery engagement, or is it within the scope of an active/pending engagement?
+3. If a new discovery engagement is warranted: create a new Work Classification Record (Step 0), use the escalation record as intake context, and begin a fresh PFD.
+4. If it falls within an existing engagement: assess whether any frozen DPRD or upstream artifact needs re-entry. Use the Cross-Kit Re-Entry Protocol if the affected DPRD has already been handed off.
+5. A human must authorize the decision to open a new engagement or decline. Declining is valid — document the rationale.
+
+### Trigger 4 — Release Rollback Revealing Wrong Feature (from REK)
+
+**Signal:** The Release & Exposure Kit (Layer 5) has identified that a release rollback was caused by a fundamental product direction problem — the feature should not have been built as specified, not merely that the build or release was flawed.
+
+**What to do:**
+1. Receive the escalation record from the REK team.
+2. Retrieve the DPRD that generated the feature in question.
+3. Assess whether the DPRD goals, requirements, or value hypotheses are at fault. This requires reviewing the upstream PIK artifact chain (PFD, VH, AR, EL).
+4. If the discovery chain is at fault: open a new discovery engagement. The prior DPRD and its upstream chain are superseded; they are not re-entered — a fresh engagement is more appropriate when the fundamental direction was wrong.
+5. If the DPRD was correct but implementation diverged: the issue belongs in EEK, not PIK. Return the escalation record to the REK team with this assessment.
+6. A human must authorize the decision at step 4 or 5.
+
+---
+
+## Principle File Revision
+
+When a principle file in `docs/principles/` changes, use the change categories defined in `aieos-spec/docs/principle-file-standard.md`:
+
+| Change Category | Version Bump | Re-Entry Impact |
+|----------------|-------------|-----------------|
+| **Minor** (clarification only) | `v_.x → v_.x+1` | No re-entry required; already-frozen artifacts remain valid |
+| **Significant** (new requirement or tightened constraint) | `v1.x → v1.x+1` | Review artifacts generated after the change against updated principles; already-frozen artifacts are grandfathered |
+| **Breaking** (removal or loosening) | `vN.x → vN+1.0` | Requires service owner authorization and documented business justification; re-entry may be warranted |
+
+Every change to a principle file must bump the version field, even minor clarifications.
+
+---
+
 ## Session Discipline
 
 - **One artifact per generation session** — do not generate multiple artifacts in one session

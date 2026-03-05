@@ -1,5 +1,7 @@
 # Product Discovery Principles
 
+Version: v1.0
+
 This document defines the organizational standards for product discovery. It is input material for artifact generation — not a governed artifact itself.
 
 ---
@@ -56,3 +58,21 @@ The depth of discovery should match the stakes. A minor feature enhancement does
 ## 10. Independence from Implementation
 
 Discovery artifacts define intent, not implementation. They describe what problem to solve and what success looks like — never how to build it. Architecture and design are the domain of downstream kits. Discovery artifacts that prescribe solutions constrain engineering unnecessarily and are considered defective.
+
+---
+
+## Enforcement Mapping
+
+| Rule Category | Enforced By |
+|---------------|-------------|
+| Problem before solution (§1) | `problem-framing-spec.md` §problem_statement hard gate |
+| Evidence over opinion / Intellectual honesty (§2, §8) | `problem-framing-spec.md` §evidence_basis hard gate; `experiment-log-spec.md` §evidence_quality hard gate |
+| Explicit assumptions (§3) | `assumption-register-spec.md` §assumption_completeness hard gate |
+| Progressive certainty / Discovery stages (§4) | Enforced structurally by the artifact flow (PFD → VH → AR → EL → DPRD); validated by each artifact's validator |
+| Scope discipline (§5) | `problem-framing-spec.md` §scope_definition hard gate; `discovery-prd-spec.md` §scope hard gate |
+| User-centered framing (§6) | `problem-framing-spec.md` §user_landscape hard gate |
+| Measurable outcomes (§7) | `value-hypothesis-spec.md` §success_criteria hard gate; `discovery-prd-spec.md` §goals hard gate |
+| Appropriate depth (§9) | `work-classification-spec.md` §discovery_depth hard gate (routes depth) |
+| Independence from implementation (§10) | `discovery-prd-spec.md` §no_implementation_prescription hard gate |
+
+Rules with no direct hard gate enforcement are advisory and reinforced by the generation prompts.

@@ -1,5 +1,7 @@
 # Hypothesis-Driven Development
 
+Version: v1.0
+
 This document defines the organizational standards for forming and testing hypotheses in product development. It is input material for artifact generation — not a governed artifact itself.
 
 ---
@@ -87,3 +89,17 @@ Hypotheses may be refined during discovery. Refinement is expected. However:
 - Refinement must be documented (what changed and why)
 - A refined hypothesis is a new hypothesis — it replaces, not amends, the previous version
 - Once a Value Hypothesis document is frozen, changes require the re-entry protocol
+
+---
+
+## Enforcement Mapping
+
+| Rule Category | Enforced By |
+|---------------|-------------|
+| Hypothesis structure — belief, target, outcome, evidence, falsification (§2) | `value-hypothesis-spec.md` §hypothesis_structure hard gate |
+| Hypothesis quality standards — specific, measurable, falsifiable (§4) | `value-hypothesis-spec.md` §falsifiability hard gate |
+| From hypothesis to requirement — traceability (§5) | `discovery-prd-spec.md` §traceability hard gate |
+| When hypotheses fail — documentation (§7) | `experiment-log-spec.md` §outcome_documentation hard gate |
+| Hypothesis iteration — refinement is documented (§8) | `experiment-log-spec.md` §experiment_entries hard gate; re-entry protocol governs frozen VH changes |
+
+Rules with no direct hard gate enforcement are advisory and reinforced by the generation prompts.

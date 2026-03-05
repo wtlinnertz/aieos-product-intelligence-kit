@@ -8,7 +8,7 @@
 | Version | {version} |
 | Date | {date} |
 | Author | {author} |
-| Status | Draft / Validated / Frozen |
+| Status | Draft / Validated / Freeze Pending / Frozen |
 
 ---
 
