@@ -488,8 +488,143 @@ If generating a downstream artifact reveals problems with an upstream artifact:
 If the Experiment Log reveals invalidated assumptions:
 1. Review the EL's impact assessment and recommendation
 2. If **proceed**: continue to DPRD generation, incorporating validated/invalidated status
-3. If **pivot**: trigger re-entry on the affected upstream artifact (PFD, VH, or AR), then regenerate downstream
-4. If **pause**: halt the initiative until the blocking issue is resolved
+3. If **pivot**: identify which upstream artifact needs revision — see Discovery Iteration Patterns below for the three pivot types and their artifact chains
+4. If **pause**: halt the initiative until the blocking issue is resolved; document the blocking issue and minimum evidence required before resuming
+
+---
+
+## Discovery Iteration Patterns
+
+Real discovery is not a pipeline. Learning changes earlier conclusions. This section defines the three patterns that arise when EL experiments or AR analysis reveal that upstream framing needs revision.
+
+These patterns are distinct from the Re-Entry Protocol:
+- **Re-Entry Protocol** — governs changes to frozen artifacts due to external events (new requirements, changed constraints)
+- **Discovery Iteration Patterns** — govern the normal case of learning within a live discovery engagement that changes upstream framing before the DPRD is generated
+
+The key difference: iteration is expected. Re-entry is exceptional. Treat them differently.
+
+---
+
+### Pattern 1: Problem Reframe
+
+**Trigger:** EL experiment results show the problem in the PFD was incorrectly framed. The team discovers a different problem than the one they were investigating — different in scope, user group, or root cause.
+
+**Examples:**
+- Experiments reveal the problem affects a different user group than PFD identified
+- Evidence shows the root cause is upstream of what PFD described
+- Experiments reveal the problem is a symptom of a more fundamental issue
+
+**Artifact chain:**
+1. Record the learning in the EL (add an experiment entry or update the impact assessment)
+2. Author a **Pivot Decision Record** (one page — see template below) naming what changed and why
+3. Unfreeze the PFD — apply re-entry to the PFD
+4. Revise the PFD to reflect the corrected problem framing
+5. Re-validate PFD — all hard gates must PASS
+6. Re-validate VH for consistency with revised PFD (if VH hypotheses are no longer coherent, revise VH as well)
+7. Re-validate AR for consistency (assumptions may change with the problem framing)
+8. Re-validate EL — confirm experiment entries are still consistent with the revised framing
+9. Generate DPRD from the revised upstream chain
+
+**Cost note:** Problem Reframe is the most expensive iteration pattern — it potentially affects all five upstream artifacts. If the problem reframe is so significant that the initiative should be reconsidered entirely, treat this as a pause decision, not a reframe.
+
+---
+
+### Pattern 2: Hypothesis Revision
+
+**Trigger:** AR risk analysis or EL experiments show the value mechanism is wrong — the hypothesis about how value is created for users is incorrect — but the problem framing in the PFD is still correct.
+
+**Examples:**
+- The proposed capability was tested and users don't value it the way the team expected
+- A technical constraint invalidated a key assumption about how the hypothesis could be delivered
+- Experiments confirmed the problem exists but revealed a different mechanism for solving it
+
+**Artifact chain:**
+1. Record the learning in the EL (update the experiment entry with results and interpretation)
+2. Author a **Pivot Decision Record** naming what changed and why
+3. Unfreeze the VH — apply re-entry to the VH
+4. Revise the VH to reflect the corrected value hypothesis (new hypothesis, revised confidence levels, updated success metrics)
+5. Re-validate VH — all hard gates must PASS
+6. Re-validate AR — if new hypothesis introduces new assumptions, add them; if invalidated assumptions are now irrelevant, remove them
+7. Re-validate EL — confirm experiment entries and recommendations are consistent with revised VH
+8. Generate DPRD from the revised upstream chain
+
+**Cost note:** Hypothesis Revision does not require revisiting the PFD. If the PFD must also change, treat this as a Problem Reframe (Pattern 1).
+
+---
+
+### Pattern 3: Assumption Invalidation
+
+**Trigger:** EL invalidates a specific assumption, but the problem framing and hypothesis are still correct. The scope or approach needs adjustment, but the core direction holds.
+
+**Examples:**
+- A technical integration assumed to be straightforward proved infeasible; the approach must change
+- A user behavior assumption was wrong, but the problem and value hypothesis remain valid
+- A market assumption was incorrect in a way that changes scope but not direction
+
+**Artifact chain:**
+1. Record the learning in the EL (mark assumption as Invalidated, document the evidence, update the impact assessment and recommendation)
+2. Determine whether the invalidation:
+   - **(a) Changes the scope or constraints of the work** — update the AR assumption status, assess downstream DPRD scope impact, then proceed to DPRD generation with adjusted constraints documented
+   - **(b) Invalidates the hypothesis mechanism** — treat as Hypothesis Revision (Pattern 2)
+   - **(c) Invalidates the problem framing itself** — treat as Problem Reframe (Pattern 1)
+3. If path (a): no upstream artifact revision is required. The DPRD will reflect the invalidated assumption status from the EL. Document the scope adjustment in the DPRD Constraints section.
+4. If additional experiments are needed before any path can be determined: add new experiments to the EL, conduct them, then re-evaluate.
+
+**Cost note:** Pattern 3 is the lightest iteration pattern. It often resolves without artifact revision — the DPRD naturally incorporates the invalidated assumption status from the EL per the DPRD spec.
+
+---
+
+### Pivot Decision Record
+
+When triggering Pattern 1 or Pattern 2, author a one-page Pivot Decision Record before making any artifact changes. This record is not a governed artifact — it does not have a validator or freeze point. It exists to make the iteration traceable.
+
+**Format:**
+
+```markdown
+## Pivot Decision Record
+
+- Date:
+- Engagement:
+- Artifact to revise: (PFD | VH)
+- Pattern: (Problem Reframe | Hypothesis Revision)
+
+### What changed
+
+(1-2 sentences: what did experiments reveal that changes the upstream framing?)
+
+### Evidence
+
+(Reference to the EL entry that triggered this pivot — EXP-N identifier and brief summary)
+
+### What is being revised
+
+(Specific sections or content in the artifact that will change. Be concrete.)
+
+### What remains unchanged
+
+(What is NOT changing — to confirm the scope of the revision is bounded)
+
+### Human approval
+
+Approved by: ____________  Date: ____________
+```
+
+File this as `pivot-decision-{date}.md` in the engagement's working directory. It becomes part of the discovery record.
+
+---
+
+### When to Use Re-Entry vs. Iteration Patterns
+
+| Situation | Use |
+|-----------|-----|
+| EL experiments change problem framing | Pattern 1 (Problem Reframe) |
+| EL/AR analysis changes value hypothesis | Pattern 2 (Hypothesis Revision) |
+| EL invalidates an assumption, scope adjusts | Pattern 3 (Assumption Invalidation) |
+| External requirement changes after freeze | Re-Entry Protocol |
+| DPRD already handed off to EEK and must change | Cross-Kit Re-Entry Protocol |
+| Downstream generation reveals upstream inconsistency | Re-Entry Protocol (see Re-Entry Initiated by Downstream Generation) |
+
+If the situation involves a frozen artifact that must change due to external input (not discovery learning), use the Re-Entry Protocol. If it involves discovery learning changing upstream framing, use the iteration patterns. When in doubt, use the iteration patterns — they are lighter and designed for the normal discovery flow.
 
 ---
 
