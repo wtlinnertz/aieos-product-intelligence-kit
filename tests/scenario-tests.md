@@ -8,18 +8,20 @@ Structural integrity checks are in `tests/structural-integrity.md`. This documen
 
 ## Coverage Matrix
 
-| Dimension | S-01 | S-02 | S-03 | S-04 | S-05 | S-06 | S-07 |
-|-----------|------|------|------|------|------|------|------|
-| Happy path (full discovery → DPRD) | x | | | | | | |
-| Failed validation → fix cycle | | x | | | | | |
-| Re-entry (upstream artifact change) | | | x | x | | | |
-| Experiment-driven pivot | | | | | x | | |
-| Cross-kit handoff (Path A) | | | | | | x | |
-| Work classification routing | | | | | | | x |
-| Greenfield intake | x | x | | | | x | x |
-| Brownfield intake | | | | | | | |
-| Multi-stakeholder input | | | | | | | |
-| Compliance initiative | | | | | | | |
+| Dimension | S-01 | S-02 | S-03 | S-04 | S-05 | S-06 | S-07 | S-08 | S-09 |
+|-----------|------|------|------|------|------|------|------|------|------|
+| Happy path (full discovery → DPRD) | x | | | | | | | | |
+| Failed validation → fix cycle | | x | | | | | | x | |
+| Re-entry (upstream artifact change) | | | x | x | | | | | |
+| Experiment-driven pivot | | | | | x | | | | x |
+| Cross-kit handoff (Path A) | | | | | | x | | | |
+| Work classification routing | | | | | | | x | | |
+| Greenfield intake | x | x | | | | x | x | x | x |
+| Brownfield intake | | | | | | | | | |
+| Multi-stakeholder input | | | | | | | | | |
+| Compliance initiative | | | | | | | | | |
+| Validator behavioral test (gate-level) | | | | | | | | x | |
+| Discovery iteration pattern (Pattern 1) | | | | | | | | | x |
 
 ---
 
@@ -221,6 +223,61 @@ Structural integrity checks are in `tests/structural-integrity.md`. This documen
 - Classification output does not gate downstream steps (it is advisory)
 - Bugs and tech debt bypass the entire kit — do not apply discovery to execution work
 - Ambiguous cases should default to targeted discovery rather than full or none
+
+---
+
+### S-08: DPRD Validator — Upstream Traceability Gate Behavior
+
+**What:** Tests gate 7 (`upstream_traceability`) of the DPRD validator by running it against two DPRD variants — one with EL experiment references present in the Assumptions section (PASS) and one with assumptions documented but no EXP-N references (FAIL). Exercises the spec-validator pair at the gate level.
+
+**Preconditions:** Complete frozen discovery chain (PFD, VH, AR, EL). EL contains at least two experiment records with EXP-N identifiers. DPRD spec and validator available.
+
+**Flow:**
+
+| Step | Action | Inputs | Expected Output | Key Verifications |
+|------|--------|--------|-----------------|-------------------|
+| 1 | Generate DPRD — with EL traceability | `discovery-prd-prompt.md` + spec + template + all 4 frozen upstream artifacts | DPRD draft; Assumptions section references EXP-1, EXP-2... from EL | EXP-N identifiers from EL appear in DPRD Assumptions section |
+| 2 | Validate DPRD (PASS variant) | **Separate AI session:** `discovery-prd-spec.md` + `discovery-prd-validator.md` + DPRD | JSON: `"status": "PASS"`, `upstream_traceability: "PASS"` | All 8 hard gates pass; gate 7 passes because EXP-N references are present |
+| 3 | Produce DPRD variant — no EL references | Same DPRD content; Assumptions section revised to remove EXP-N identifiers (assumptions listed as statements only) | DPRD variant with no EXP-N references | Content is structurally complete except for missing traceability |
+| 4 | Validate DPRD (FAIL variant) | **Separate AI session:** `discovery-prd-spec.md` + `discovery-prd-validator.md` + variant DPRD | JSON: `"status": "FAIL"`, `upstream_traceability: "FAIL"` | Gate 7 fails; `blocking_issues` references upstream_traceability with location pointing to Assumptions section |
+
+**Key verifications:**
+- Gate 7 is independently evaluable — it fails even when all other 7 gates would pass
+- The validator evaluates only what is explicitly present — it does not infer EXP-N traceability from other sections
+- A gate 7 failure is a blocking issue — DPRD cannot be frozen until EL is updated with EXP-N identifiers and DPRD is regenerated
+- Generation (steps 1, 3) and validation (steps 2, 4) use separate AI sessions
+
+---
+
+### S-09: Discovery Iteration Pattern 1 — Problem Reframe
+
+**What:** EL results reveal the core problem framing in the PFD is incorrect. Pattern 1 (Problem Reframe) is triggered: a Pivot Decision Record is filed and approved, the PFD is revised and re-validated, and the VH is checked for cascade consistency. Verifies the iteration model is distinct from re-entry and produces a coherent bounded revision.
+
+**Preconditions:** PFD, VH, AR all frozen. Experiments conducted. EXP-3 result shows the assumed pain point exists in only 8% of users, not the broad audience defined in the PFD. This changes the problem scope, not just a hypothesis.
+
+**Flow:**
+
+| Step | Action | Inputs | Expected Output | Key Verifications |
+|------|--------|--------|-----------------|-------------------|
+| 4 | Generate EL | All frozen upstream artifacts + experiment data including EXP-3 | EL draft with `pivot` recommendation; EXP-3 finding documented | Recommendation is `pivot`; EXP-3 is traceable to an AR assumption |
+| 4 | Validate EL | `experiment-log-spec.md` + `experiment-log-validator.md` + EL | JSON: `"status": "PASS"` with `pivot` recommendation | PASS — EL correctly documents the finding; pivot is the learning outcome |
+| 4 | Freeze EL | Human review + approval | Frozen EL with `pivot` recommendation | Human acknowledges finding; iteration decision pending |
+| — | File Pivot Decision Record | `pivot-decision-template.md` | EXP-3 finding + impacted artifact (PFD) + pattern (Pattern 1 — Problem Reframe) | Completed pivot-decision-{date}.md with Document Control, Evidence, Downstream Impact Assessment, and Human Approval all filled |
+| — | Human approves Pivot Decision Record | Pivot Decision Record | Signed record | Revision authorized | Artifact revision may not begin before approval |
+| 1 | Revise PFD | Frozen PFD + approved Pivot Decision Record | Revised PFD with narrowed user scope | User groups updated to reflect actual affected segment; change bounded to what the Pivot Decision Record specified |
+| 1 | Re-validate PFD | `problem-framing-spec.md` + `problem-framing-validator.md` + revised PFD | JSON: `"status": "PASS"` | All 6 PFD hard gates pass |
+| 1 | Re-freeze PFD | Human review + approval | Updated frozen PFD | Human confirms revision is bounded and correct |
+| 2 | Assess VH cascade consistency | Revised PFD + frozen VH | Consistency check | All VH user group references (UG-N) must trace to revised PFD | If any VH user group references a UG-N no longer in PFD, VH must be revised |
+| 2 | [If VH needs revision] Re-validate and re-freeze VH | Spec + validator + revised VH | JSON: `"status": "PASS"` | All 6 VH hard gates pass |
+| — | Check AR and EL consistency | Revised PFD + re-checked VH + frozen AR + frozen EL | Consistency confirmed | AR assumptions must still be valid under revised problem scope; existing EL findings still apply |
+
+**Key verifications:**
+- Pattern 1 REQUIRES a Pivot Decision Record — no artifact revision begins without it
+- Human approval of the Pivot Decision Record is a hard stop before revision
+- The frozen EL (with `pivot` recommendation) is the evidence base — no new experiments are required
+- Cascade is bounded: PFD → VH check → AR/EL consistency check; not a full re-run of the artifact chain
+- **Distinction from Re-Entry (S-03, S-04):** Iteration is triggered by experimental learning (expected outcome of discovery); re-entry is triggered by external events. Iteration is bounded by what the experiment revealed.
+- **Distinction from S-05 (Pause):** Pattern 1 triggers when learning is conclusive enough to justify revision; pause triggers when uncertainty cannot be resolved with available experiments.
 
 ---
 
