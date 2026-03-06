@@ -55,8 +55,8 @@ Note: Work Classification is a **governed artifact** (Step 0), not a utility pro
 - **Separate generation and validation** — different AI sessions to prevent self-validation bias
 - **No scope expansion** — downstream artifacts must not expand scope beyond upstream
 - **No inferred information** — mark missing information explicitly, do not fill gaps
-- **Governance model sync** — `docs/governance-model.md` is a synchronized copy of `aieos-spec/governance-model.md`, which is the canonical authority. Do not edit the kit copy directly — update `aieos-spec` first, then sync all kit copies to match exactly. See governance-model.md §15 for versioning and change protocol.
-- **Engagement Record** — PIK creates the ER (`docs/engagement/er-{initiative}.md` in the consuming project) when Discovery Intake is validated, and updates it as each Layer 2 artifact freezes. See `docs/playbook.md §Maintaining the Engagement Record` and `aieos-spec/docs/engagement-record-spec.md`.
+- **Governance model sync** — `docs/governance-model.md` is a synchronized copy of `aieos-governance-foundation/governance-model.md`, which is the canonical authority. Do not edit the kit copy directly — update `aieos-governance-foundation` first, then sync all kit copies to match exactly. See governance-model.md §15 for versioning and change protocol.
+- **Engagement Record** — PIK creates the ER (`docs/engagement/er-{initiative}.md` in the consuming project) when Discovery Intake is validated, and updates it as each Layer 2 artifact freezes. See `docs/playbook.md §Maintaining the Engagement Record` and `aieos-governance-foundation/docs/engagement-record-spec.md`.
 
 ## Artifact Flow
 
@@ -93,6 +93,6 @@ Discovery Intake (human) → validate intake → PFD → validate → freeze
 
 ## Building or Auditing AIEOS Kits
 
-- `aieos-spec/docs/kit-structure-standard.md` — compliance checklist for building and auditing kits
-- `aieos-spec/docs/philosophy.md` — design rationale for governance model decisions
-- `aieos-spec/docs/layer-model.md` — seven-layer model and kit registry
+- `aieos-governance-foundation/docs/kit-structure-standard.md` — compliance checklist for building and auditing kits
+- `aieos-governance-foundation/docs/philosophy.md` — design rationale for governance model decisions
+- `aieos-governance-foundation/docs/layer-model.md` — seven-layer model and kit registry
