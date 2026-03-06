@@ -685,6 +685,39 @@ Every change to a principle file must bump the version field, even minor clarifi
 
 ---
 
+## Deprecation and Sunset
+
+When a discovery initiative ends — either by completion, cancellation, or strategic redirect — the artifacts it produced transition to terminal lifecycle states. See the full protocol in `aieos-spec/docs/deprecation-protocol.md`.
+
+### When to Deprecate or Abandon
+
+| Situation | Action |
+|-----------|--------|
+| Discovery completed; DPRD frozen and handed off; initiative concluded | `Deprecated` on all frozen artifacts after system reaches end of operational life |
+| Initiative cancelled after one or more artifacts are Frozen | `Deprecated` on frozen artifacts; `Abandoned` on any non-frozen artifacts |
+| Initiative cancelled before any artifact is Frozen | `Abandoned` on all in-progress artifacts |
+| Discovery concluded with a Pause or stop signal at EL; no DPRD produced | `Abandoned` on all artifacts in the series |
+
+### Who Authorizes
+
+A product owner, team lead, or equivalent role must authorize the terminal state transition. Do not move to `Deprecated` or `Abandoned` without an authorizing name and role recorded in the Deprecation Notice.
+
+### How to Issue a Deprecation Notice (DN)
+
+1. Confirm the cancellation or conclusion decision is authorized.
+2. List all artifacts in the discovery series with their current status.
+3. For each artifact: if Frozen → `Deprecated`; if not Frozen → `Abandoned`.
+4. Create a DN record at `docs/sdlc/dn-{initiative-id}-{NNN}.md` using the format in `aieos-spec/docs/deprecation-protocol.md`.
+5. Update each artifact's Status field to its terminal state (non-material amendment; add Amendment Log entry per governance model §6).
+
+### What Does Not Change
+
+- Artifacts are retained — never deleted.
+- Terminal state does not require re-validation.
+- If the initiative restarts, new artifacts with new IDs are produced. Terminal-state artifacts are not reactivated.
+
+---
+
 ## Session Discipline
 
 - **One artifact per generation session** — do not generate multiple artifacts in one session
