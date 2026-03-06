@@ -15,6 +15,8 @@ File as `pivot-decision-{date}.md` in the engagement's working directory.
 - Author:
 - Artifact to revise: (PFD | VH)
 - Iteration Pattern: (Problem Reframe — Pattern 1 | Hypothesis Revision — Pattern 2)
+- Governance Model Version: 1.0
+- Prompt Version: N/A
 
 ---
 

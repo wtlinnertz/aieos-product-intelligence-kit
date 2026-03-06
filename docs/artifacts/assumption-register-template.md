@@ -11,6 +11,8 @@
 | Status | Draft / Validated / Freeze Pending / Frozen |
 | Upstream PFD | {PFD artifact ID} |
 | Upstream VH | {VH artifact ID} |
+| Governance Model Version | 1.0 |
+| Prompt Version | {prompt version} |
 
 ---
 

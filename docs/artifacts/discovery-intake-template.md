@@ -6,6 +6,16 @@ Fill in what you know. Leave unknown sections blank — the generation prompts w
 
 ---
 
+## Document Control
+
+- Date:
+- Author:
+- Initiative Name:
+- Governance Model Version: 1.0
+- Prompt Version: N/A
+
+---
+
 ## Problem Context
 
 ### What is the problem?

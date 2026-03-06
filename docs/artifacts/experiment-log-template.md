@@ -12,6 +12,8 @@
 | Upstream PFD | {PFD artifact ID} |
 | Upstream VH | {VH artifact ID} |
 | Upstream AR | {AR artifact ID} |
+| Governance Model Version | 1.0 |
+| Prompt Version | {prompt version} |
 
 ---
 

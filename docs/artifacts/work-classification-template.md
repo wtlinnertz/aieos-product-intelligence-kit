@@ -12,6 +12,8 @@ This record is **human-authored** (optionally AI-assisted via `work-classificati
 - Date:
 - Classified By:
 - Work Request Summary: (1-2 sentences describing the incoming work in concrete terms — what is being requested and by whom)
+- Governance Model Version: 1.0
+- Prompt Version: N/A
 
 ---
 
