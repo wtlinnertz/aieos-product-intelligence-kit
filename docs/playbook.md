@@ -718,6 +718,35 @@ A product owner, team lead, or equivalent role must authorize the terminal state
 
 ---
 
+## Maintaining the Engagement Record
+
+The Engagement Record (ER) is a project-level artifact that lives in the consuming project at `docs/engagement/er-{initiative}.md`. It spans all AIEOS layers and is maintained by each kit's operators as work passes through. The ER spec and format are defined in `aieos-spec/docs/engagement-record-spec.md`.
+
+**PIK creates the ER and maintains its Layer 2 section.**
+
+### When to Create the ER
+
+Create the ER when the Discovery Intake is validated — at the beginning of Step 1 (PFD generation). Create the file at `docs/engagement/er-{INITIATIVE}-{NNN}.md` in the consuming project. Fill in §1 Document Control and leave §2–§7 as stubs. The ER must exist before the first governed artifact is generated.
+
+### What to Update During Discovery
+
+| Trigger | ER update |
+|---------|-----------|
+| WCR frozen | Add WCR ID to §2 artifact table |
+| Discovery Intake validated | Record intake date in §2 |
+| PFD frozen | Add PFD ID to §2 |
+| VH frozen | Add VH ID to §2 |
+| AR frozen | Add AR ID to §2 |
+| EL frozen | Add EL ID to §2 |
+| Pivot decision made | Add PDR ID to §2; record pivot in §2 Key Decisions with the AR assumption ID that was invalidated |
+| DPRD frozen | Add DPRD ID to §2 |
+
+### On Initiative End
+
+When issuing a Deprecation Notice: update §1 Status to `Deprecated` or `Abandoned`, add the DN ID to §7 Initiative Outcome, and record the final VH verdict in §7 if known.
+
+---
+
 ## Session Discipline
 
 - **One artifact per generation session** — do not generate multiple artifacts in one session

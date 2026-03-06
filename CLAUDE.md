@@ -56,6 +56,7 @@ Note: Work Classification is a **governed artifact** (Step 0), not a utility pro
 - **No scope expansion** — downstream artifacts must not expand scope beyond upstream
 - **No inferred information** — mark missing information explicitly, do not fill gaps
 - **Governance model sync** — `docs/governance-model.md` is a synchronized copy of `aieos-spec/governance-model.md`, which is the canonical authority. Do not edit the kit copy directly — update `aieos-spec` first, then sync all kit copies to match exactly. See governance-model.md §15 for versioning and change protocol.
+- **Engagement Record** — PIK creates the ER (`docs/engagement/er-{initiative}.md` in the consuming project) when Discovery Intake is validated, and updates it as each Layer 2 artifact freezes. See `docs/playbook.md §Maintaining the Engagement Record` and `aieos-spec/docs/engagement-record-spec.md`.
 
 ## Artifact Flow
 
