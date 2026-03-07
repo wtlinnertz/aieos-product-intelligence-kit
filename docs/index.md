@@ -62,6 +62,9 @@ The Product Intelligence Kit governs the transformation of strategic intent into
 ### Guides
 - [How to Adapt](how-to-adapt.md) — Organizational adoption guidance
 - [How to Use with AI](how-to-use-with-ai.md) — AI tool usage guide
+- [Session Setup](session-setup.md) — Per-artifact setup checklists, pre-flight gate checks, and common failure reminders
+- [Troubleshooting](troubleshooting.md) — Gate failure remediation guide
+- [Entry from IEK](entry-from-iek.md) — Boundary briefing when arriving from the Insight & Evolution Kit (re-discover signal)
 
 ### Reference
 - [Governance Model](governance-model.md) — AIEOS structural rules

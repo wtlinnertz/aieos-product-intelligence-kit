@@ -73,6 +73,7 @@ Discovery Intake (human) → validate intake → PFD → validate → freeze
 
 - **Upstream:** Discovery Intake Form validated against `docs/specs/discovery-intake-spec.md` (6 hard gates). This is the upstream boundary contract — upstream teams can produce validated intake artifacts independently.
 - **Downstream:** Produces a frozen Discovery PRD that satisfies the Engineering Execution Kit's PRD specification (8 hard gates). The DPRD is delivered as `docs/sdlc/01-prd.md` in the consuming project and validated by the EEK's `prd-validator.md` as an acceptance check. See `docs/playbook.md` §Downstream Handoff for full mechanics and cross-kit re-entry protocol. Note: EEK requires a **Kit Entry Record** (Step 0 gate) before artifact generation begins — teams receiving the DPRD via Path A should expect this gate and have a classification record or justification ready.
+- **Incoming (IEK re-discovery loop):** When an IEK Evolution Signal returns a `re-discover` signal, PIK is re-entered for a new discovery engagement. See `docs/entry-from-iek.md` for the boundary briefing.
 
 ## File Naming
 
@@ -89,6 +90,8 @@ Discovery Intake (human) → validate intake → PFD → validate → freeze
 - Read the playbook (`docs/playbook.md`) for the full process definition
 - Read the governance model (`docs/governance-model.md`) for structural rules
 - Check `docs/how-to-use-with-ai.md` for session setup instructions
+- Use `docs/session-setup.md` for per-artifact setup checklists and pre-flight gate checks
+- Use `docs/troubleshooting.md` when a validator returns FAIL — maps each gate failure to a specific remediation
 - Reference `examples/` for a complete worked example
 
 ## Building or Auditing AIEOS Kits
