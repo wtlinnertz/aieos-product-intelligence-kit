@@ -4,6 +4,14 @@ The Discovery PRD (DPRD) is the terminal artifact of the Product Intelligence Ki
 
 ---
 
+## What This Artifact Is Not
+
+- **Not a technical design document.** The DPRD defines what to build and why. How the system accomplishes it belongs in the SAD and TDD (downstream in the Engineering Execution Kit).
+- **Not a backlog of tasks.** The DPRD defines requirements, not a work breakdown structure or sprint plan.
+- **Not a project plan.** The DPRD defines product intent. Delivery planning belongs in downstream engineering artifacts.
+
+---
+
 ## Upstream Dependencies
 
 - Frozen Problem Framing Document (PFD)
@@ -64,11 +72,13 @@ These sections are mandated by the Engineering Execution Kit's PRD specification
 ### Requirements (Functional and Non-Functional)
 - Functional requirements must be explicitly stated
 - Non-functional requirements must be explicitly stated (performance, reliability, compliance, etc.)
-- Requirements must not contain implementation details or solution design
+- Requirements must not contain implementation details or solution design — DPRDs that prescribe solutions undermine the engineering team's architecture authority and create false requirements
 - Functional requirements must use "The system SHALL ..." language
 - Each requirement must have a unique identifier (FR-1, NFR-1, etc.)
 - At least one functional requirement and one non-functional requirement must exist
-- Requirements must trace to at least one value hypothesis (VH reference)
+- Requirements must trace to at least one value hypothesis (VH HYP-N reference)
+
+**Failure examples:** "The system SHALL use a microservices architecture" (implementation prescription, not a requirement). "The system SHALL be fast" (not measurable). "FR-1: Support notifications" (no "SHALL" language, no VH trace, no measurable criterion). Valid: "FR-1: The system SHALL deliver notifications to UG-1 users within 60 seconds of the triggering event. [HYP-2]"
 
 ### Constraints (Hard Guardrails)
 - Constraints must be documented (regulatory, technical, delivery)
@@ -124,13 +134,15 @@ These sections are mandated by the Engineering Execution Kit's PRD specification
 
 ## Relationship Rules
 
+- DPRD is downstream of all four PIK artifacts (PFD, VH, AR, EL) — all must be Frozen before the DPRD is generated
 - DPRD must not contain solution design or architecture
 - DPRD must not reference implementation details
 - DPRD defines intent that downstream artifacts (SAD, TDD) must not reinterpret or expand
 - Non-goals are enforceable constraints on all downstream artifacts
 - DPRD must not expand scope beyond what the PFD, VH, AR, and EL collectively define
-- Requirements must trace to value hypotheses
-- Assumptions must trace to the Assumption Register
+- Requirements must trace to value hypotheses (HYP-N references)
+- Assumptions must trace to the Assumption Register (ASM-N references) and carry EL validation status
+- When delivered to the Engineering Execution Kit via Path A, the DPRD is placed as `docs/sdlc/01-prd.md` and validated against the EEK's PRD specification — it must not be regenerated or modified by the EEK
 
 ---
 

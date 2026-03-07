@@ -4,6 +4,13 @@ The Assumption Register (AR) catalogs all assumptions underlying the product ini
 
 ---
 
+## What This Artifact Is Not
+
+- **Not a risk register or project plan.** The AR catalogs assumptions about what we believe to be true. It does not capture project delivery risks, resource constraints, or timeline dependencies.
+- **Not an exhaustive list of unknowns.** The AR catalogs assumptions implicit in the PFD and VH — not every possible uncertainty. Assumptions without upstream basis represent scope expansion.
+
+---
+
 ## Upstream Dependencies
 
 - Frozen Problem Framing Document (PFD)
@@ -40,14 +47,16 @@ The Assumption Register (AR) catalogs all assumptions underlying the product ini
 - Each assumption must include:
   - **Identifier**: ASM-N format
   - **Statement**: What is being assumed to be true
-  - **Source**: Which upstream artifact and section this assumption originates from (PFD or VH reference)
+  - **Source**: Which upstream artifact and section this assumption originates from — must cite the specific section (e.g., "PFD §3 UG-1", "VH HYP-2 evidence criteria") not just "PFD" or "VH"
   - **Category**: One of: User Behavior, Market, Technical, Organizational, Regulatory, Data
   - **Risk level**: High, Medium, or Low
   - **Impact if false**: What happens to the initiative if this assumption is wrong
   - **Current evidence**: What evidence supports this assumption (or "None")
-  - **Validation method**: How this assumption will be tested or verified
+  - **Validation method**: How this assumption will be tested or verified — must be concrete (user interviews, data analysis, prototype test, survey) not "validate later"
 - Assumptions must not contain solution proposals or implementation details
 - Assumptions must trace to specific content in the PFD or VH
+
+**Failure examples:** Source field reads "PFD" with no section (not specific enough to verify). Source field reads "prior experience" (not an upstream artifact). Assumption states "The system should be easy to use" (solution-adjacent, not an assumption about what is true). Validation method reads "investigate later" (not concrete).
 
 ### Risk Assessment Summary
 - Must provide an aggregate view of assumption risk
@@ -100,11 +109,13 @@ The Assumption Register (AR) catalogs all assumptions underlying the product ini
 
 ## Relationship Rules
 
+- AR is downstream of both the frozen PFD and frozen VH — both must be Frozen before the AR is generated
 - AR must not expand the problem space beyond what the PFD defines
 - AR must not introduce hypotheses not present in the VH
 - AR must not contain solution proposals, architecture, or implementation details
-- AR assumptions must trace to content in the PFD or VH
+- AR assumptions must trace to specific content in the PFD or VH — untraced assumptions typically represent scope expansion: concerns outside the bounded problem space that would not have been visible had the AR been derived from PFD/VH sources
 - The AR feeds the Discovery PRD's Assumptions and Constraints sections
+- AR is upstream of the EL — the EL validates AR assumptions; it does not introduce new ones
 
 ---
 

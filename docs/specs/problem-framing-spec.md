@@ -4,6 +4,14 @@ The Problem Framing Document (PFD) structures the problem space for a product in
 
 ---
 
+## What This Artifact Is Not
+
+- **Not a feature specification or solution proposal.** The PFD defines the problem space. It does not describe what to build, how to build it, or what the solution looks like.
+- **Not a requirements document.** Requirements belong downstream (DPRD). The PFD defines the problem that requirements will later address.
+- **Not a strategic roadmap.** The PFD is scoped to a single initiative's problem space. Strategic context is referenced, not defined, here.
+
+---
+
 ## Upstream Dependencies
 
 - Completed Discovery Intake Form
@@ -32,11 +40,13 @@ The Problem Framing Document (PFD) structures the problem space for a product in
 - Must include version, date, author, and status (Draft / Validated / Frozen)
 
 ### Problem Statement
-- Must contain a clear, concise problem statement (1-3 sentences)
-- Must identify who experiences the problem (specific user groups or personas)
+- Must contain a problem statement that identifies what fails, who is affected, and the consequence — independently verifiable by a reader who does not know the project
+- Must identify who experiences the problem (specific user groups or personas — not "users" generically)
 - Must include rationale for why this problem matters now ("why now")
 - Must not contain solution proposals or implementation ideas
-- Must not use vague language ("improve the experience", "make it better")
+- Must not use vague language without specifics ("improve the experience", "make it better" without stating what fails and for whom)
+
+**Failure examples:** "Users struggle with the experience" (no specific behavior, no users named, no impact). "Engineers find deployment slow" (no evidence basis, no why-now). "We need to improve onboarding" (solution-adjacent framing, no problem identified).
 
 ### User Landscape
 - Must identify all affected user groups or personas
@@ -47,8 +57,10 @@ The Problem Framing Document (PFD) structures the problem space for a product in
 ### Pain Points and Impact
 - Must enumerate specific pain points experienced by identified users
 - Each pain point must describe: the problem behavior, its frequency, and its impact
-- Impact must be stated in concrete terms (time lost, errors caused, revenue affected, tasks abandoned)
-- Must not speculate about pain points without evidence basis — clearly label what is known vs. assumed
+- Impact must be stated in concrete terms (time lost, errors caused, revenue affected, tasks abandoned) — not qualitative assessments like "frustrating" or "inefficient"
+- Must not speculate about pain points without evidence basis — clearly label what is known vs. assumed (Known / Believed / Assumed)
+
+**Failure examples:** "Users find it confusing" (no behavior, no frequency, no concrete impact). "The process is slow" (no users named, no time measurement, no frequency). Pain point entry present but impact field reads "negative user experience" (qualitative, not concrete).
 
 ### Opportunity Sizing
 - Must include an estimate of the opportunity magnitude
@@ -105,7 +117,8 @@ The Problem Framing Document (PFD) structures the problem space for a product in
 
 ## Relationship Rules
 
-- PFD must not contain solution proposals or architecture
+- PFD is generated from the Discovery Intake Form — it must not expand beyond what the intake provides
+- PFD must not contain solution proposals or architecture — solution proposals constrain engineering unnecessarily, converting open design space into implicit requirements before architecture decisions are made
 - PFD must not reference implementation technologies or design patterns
 - PFD defines the problem space that downstream artifacts (VH, AR, DPRD) must not expand
 - Constraints in the PFD are inherited by all downstream artifacts

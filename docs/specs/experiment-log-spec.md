@@ -4,6 +4,14 @@ The Experiment Log (EL) records the execution and results of assumption validati
 
 ---
 
+## What This Artifact Is Not
+
+- **Not a product experiment backlog.** The EL documents experiments already conducted, not planned experiments. If an experiment has not been run, it does not appear in the EL.
+- **Not a plan for future experiments.** Future validation belongs in the AR Validation Plan. The EL records what happened.
+- **Not a retrospective or recommendations document.** The EL records what was observed. Recommendations are a bounded section grounded in evidence — not the primary purpose of the artifact.
+
+---
+
 ## Upstream Dependencies
 
 - Frozen Problem Framing Document (PFD)
@@ -52,6 +60,8 @@ The Experiment Log (EL) records the execution and results of assumption validati
 - Experiments must trace to specific assumptions in the AR
 - Findings must be factual observations, not interpretations or recommendations
 - Experiments must not propose solutions or implementation details
+
+**Failure examples:** Raw finding reads "users found the process helpful" (interpretation, not observation — what did they say or do?). Raw finding reads "the experiment confirmed our hypothesis" (conclusion, not finding). Conclusion present without supporting findings. Valid raw finding: "7 of 8 interviewed users described a weekly reconciliation task taking 2–4 hours; 1 user automated this with a script."
 
 ### Results Summary
 - Must provide an aggregate view of experiment outcomes
@@ -110,12 +120,13 @@ The Experiment Log (EL) records the execution and results of assumption validati
 
 ## Relationship Rules
 
+- EL is downstream of the frozen PFD, VH, and AR — all three must be Frozen before the EL is generated
 - EL must not expand the problem space beyond what the PFD defines
 - EL must not introduce new hypotheses not present in the VH
-- EL must not modify assumption statements from the AR — it reports on them
+- EL must not modify assumption statements from the AR — it reports on them (the AR is frozen; modifying its assumptions would be retroactive editing of a frozen artifact)
 - EL must not contain solution proposals, architecture, or implementation details
-- EL experiment references must trace to AR assumption identifiers
-- EL feeds the Discovery PRD by providing validated/invalidated assumption status
+- EL experiment references must trace to AR assumption identifiers (ASM-N)
+- EL feeds the Discovery PRD by providing validated/invalidated assumption status — the DPRD carries forward only what the EL confirms or notes as Invalidated
 
 ---
 

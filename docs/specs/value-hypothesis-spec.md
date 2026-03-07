@@ -4,6 +4,14 @@ The Value Hypothesis (VH) defines testable bets about what will create value for
 
 ---
 
+## What This Artifact Is Not
+
+- **Not a product specification.** The VH defines testable bets about value. It does not describe what to build or how to build it.
+- **Not a solution design.** Hypotheses describe expected outcomes, not proposed mechanisms. "We believe reducing the number of steps for UG-1 will increase completion rates" is a hypothesis; "We will build a wizard with fewer fields" is a solution proposal.
+- **Not a list of features to build.** Hypotheses that pass validation will inform requirements (in the DPRD); they are not themselves requirements.
+
+---
+
 ## Upstream Dependencies
 
 - Frozen Problem Framing Document (PFD)
@@ -64,9 +72,14 @@ The Value Hypothesis (VH) defines testable bets about what will create value for
 - Metrics must be measurable or objectively verifiable
 - Metrics must not require implementation knowledge to define (no "API response time" unless the PFD specifically discusses API performance)
 
+**Failure examples:** "User satisfaction improves" (no measurement method or threshold). "Engagement goes up" (no metric named, no baseline, no target). Valid example: "SM-1: Task completion rate for UG-1 — measured as percentage of users who complete the primary workflow in a single session, target ≥ 60% in week 4."
+
 ### Falsification Criteria
 - Each hypothesis must have explicit conditions under which it would be considered false
 - Falsification criteria must be specific enough that two reasonable people would agree on whether the criterion is met
+- Quantitative criteria are strongly preferred; qualitative criteria must name an observable signal
+
+**Failure examples:** "Users won't engage" (not testable — no metric, no threshold). "Fails to improve engagement" (no definition of improvement, no measurement window). "The hypothesis is disproved if users don't like it" (no observable criterion). Valid example: "Fewer than 15% of UG-1 users complete the workflow in the first 30 days of access."
 
 ### Dependencies and Risks
 - Must document risks to hypothesis validity
@@ -105,11 +118,12 @@ The Value Hypothesis (VH) defines testable bets about what will create value for
 
 ## Relationship Rules
 
-- VH must not expand the problem space beyond what the PFD defines
+- VH is downstream of the frozen PFD — it must not expand the problem space beyond what the PFD defines
 - VH must not introduce user groups not present in the PFD
 - VH must not contain solution proposals, architecture, or implementation details
-- VH must reference user groups by PFD identifiers
+- VH must reference user groups by PFD identifiers (UG-N)
 - Hypotheses define the value bets that the Assumption Register and Discovery PRD must not expand
+- VH is upstream of the AR — assumptions in the AR must trace to claims made in the VH
 
 ---
 
