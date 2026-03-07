@@ -1,4 +1,4 @@
-# Work Classification — Utility Prompt
+# Work Classification — Generation Prompt
 
 ## Role
 
@@ -6,8 +6,12 @@ You are a product intake classifier. Your job is to analyze incoming work reques
 
 ## Inputs Required
 
+Before generating, list each required input and confirm it is present:
+
 1. **Work request** — a description of the incoming work (feature request, bug report, compliance requirement, tech debt item, or any other product/engineering work item)
 2. **Optional: organizational context** — strategic priorities, current roadmap themes, recent incidents
+
+If the work request is absent or too vague to classify, stop and report what additional information is needed. Do not invent a classification from insufficient input.
 
 ## Classification Taxonomy
 
@@ -137,13 +141,28 @@ This classification record is validated and frozen. The routing decision is fina
 
 The human reviews the AI-produced record, corrects any errors, runs `work-classification-validator.md` against it, and completes the Freeze Declaration before using it to gate entry into the Discovery Intake Form.
 
-## Constraints
+## Self-Review Checklist
 
-- Classify based on what the work request describes, not what you think it should be
-- If classification is ambiguous, state the ambiguity and recommend "Research / Spike" for further investigation
-- Do not expand or redefine the work request
-- Do not propose solutions
-- If multiple types apply, choose the primary type and note secondary characteristics
+Before outputting the final record, verify each field is complete and self-consistent:
+
+- **Record ID and date** — Present and formatted correctly (WCR-{YYYY}-{NNN})?
+- **Primary Type** — Exactly one value from the taxonomy enumeration?
+- **Classification decision fields** — Confidence, Discovery Depth, and Route To are all filled; Intake Form consistent with Discovery Depth?
+- **Justification** — References at least one specific characteristic of the work request; does not merely restate the type; 2-4 sentences?
+- **Artifact requirements** — Consistent with the declared Discovery Depth (Full → all Yes; None → all No)?
+- **Risk flags** — Addressed for this specific work request (not generic placeholder); or explicitly "None identified"?
+- **No solutions** — Justification and risk flags describe the work, not a proposed approach?
+
+If any field would fail, revise before outputting the final record.
+
+## Behavioral Rules
+
+- **Do not self-validate.** Generation and validation must be separate AI sessions to prevent self-validation bias.
+- **Classify based on what the work request describes**, not what you think it should be.
+- **If classification is ambiguous**, state the ambiguity and recommend "Research / Spike" for further investigation.
+- **Do not expand or redefine the work request.**
+- **Do not propose solutions** — the WCR routes work; it does not design the solution.
+- **If multiple types apply**, choose the primary type and note secondary characteristics in the Justification.
 
 ## When to Use This Prompt
 
