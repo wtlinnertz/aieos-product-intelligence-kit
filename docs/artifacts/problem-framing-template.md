@@ -66,6 +66,8 @@
 
 ## 6. Strategic Alignment
 
+> **Advisory section** — Required by template structure; evaluated qualitatively. No hard gate applies. Validators note absence but do not block freeze. If strategic context is not available, write "Strategic context not provided" rather than leaving this section blank.
+
 {How addressing this problem aligns with organizational strategy}
 
 **Strategic objectives supported:**

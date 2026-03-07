@@ -125,6 +125,12 @@ The Problem Framing Document (PFD) structures the problem space for a product in
 
 ---
 
+## Advisory Sections
+
+The following template sections are required by template structure but are evaluated qualitatively — no hard gate applies. Validators note absence but do not block freeze.
+
+- **§6 Strategic Alignment** — Required in template structure. Validators note absence but do not block freeze. Content is evaluated qualitatively: if strategic context is not available, write "Strategic context not provided" rather than leaving the section blank or inferring alignment.
+
 ## Hard Gates
 
 1. **problem_definition** — Clear problem statement with identified users and "why now" rationale
