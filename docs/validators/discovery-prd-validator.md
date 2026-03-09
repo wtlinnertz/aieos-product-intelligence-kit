@@ -19,7 +19,7 @@ Evaluate the DPRD against each hard gate and content rule defined in the spec. B
 
 ### Hard Gates
 
-The DPRD must satisfy 8 hard gates: 6 from the Engineering Execution Kit's downstream contract, and 2 from the Product Intelligence Kit's traceability requirements.
+The DPRD must satisfy 9 hard gates: 6 from the Engineering Execution Kit's downstream contract, 2 from the Product Intelligence Kit's traceability requirements, and 1 for principles coverage.
 
 #### Engineering Execution Kit Gates (Downstream Contract)
 
@@ -80,6 +80,12 @@ The DPRD must satisfy 8 hard gates: 6 from the Engineering Execution Kit's downs
 - Are any problems, user groups, hypotheses, or requirements introduced that upstream artifacts do not support?
 - FAIL if scope is expanded beyond upstream artifacts
 
+##### 9. principles_coverage
+- Does the DPRD include a principles coverage table (as a Markdown comment)?
+- Does the table account for every directive from `product-craftsmanship.md` (§1–§8) and `product-discovery-principles.md`?
+- Is each directive either addressed in a specific DPRD section or explicitly marked N/A with justification?
+- FAIL if the table is missing, incomplete, or contains unaddressed directives without justification
+
 ### Additional Checks (Non-Gate)
 
 - Are all 12 required sections present?
@@ -106,7 +112,8 @@ Produce JSON in the standard validator output format:
     "constraints": "PASS | FAIL",
     "readiness": "PASS | FAIL",
     "upstream_traceability": "PASS | FAIL",
-    "no_scope_expansion": "PASS | FAIL"
+    "no_scope_expansion": "PASS | FAIL",
+    "principles_coverage": "PASS | FAIL"
   },
   "blocking_issues": [
     {

@@ -17,6 +17,19 @@ Before generating, list each required input and confirm it is present. Confirm t
 
 If any upstream artifact is required to be Frozen and is not, stop and report which artifact is not Frozen. Do not proceed with non-Frozen upstream artifacts. If any other required input is absent, stop and report what is missing.
 
+### Required Principles Inputs
+
+The following organizational principles files MUST be provided as input and their directives incorporated into the generated DPRD:
+- **Product Craftsmanship Principles** (`product-craftsmanship.md`) — Apply §1 Diagnose Before Prescribing to Problem Statement; §2 Outcomes Over Output to Goals and Acceptance Criteria; §3 Explicit Assumptions to Assumptions; §4 Strategic Alignment to Problem Statement rationale; §5 Clear Scope Boundaries to Non-Goals and Out of Scope; §8 Evidence Over Opinion to problem framing and justification
+- **Product Discovery Principles** (`docs/principles/product-discovery-principles.md`) — Apply all sections as organizational discovery standards
+
+After generating the DPRD, append a principles coverage table as a Markdown comment at the end of the artifact:
+<!-- PRINCIPLES COVERAGE
+| Principles File | Section | DPRD Section Addressed | Status |
+|---|---|---|---|
+(For each directive in each required principles file, confirm it is addressed in a specific DPRD section or marked N/A with justification)
+-->
+
 ## Instructions
 
 ### Structure
@@ -126,6 +139,7 @@ Before outputting the final document, verify each hard gate:
 - **readiness** (EEK Gate 6) — No blocking open questions; document internally consistent (goals, scope, requirements, non-goals do not contradict)?
 - **upstream_traceability** (PIK Gate 7) — Problem traces to PFD; goals trace to VH; assumptions reference AR (ASM-N) with EL status; acceptance criteria trace to VH (SM-N); users reference PFD (UG-N)?
 - **no_scope_expansion** (PIK Gate 8) — No requirement, goal, or user group introduced beyond the collective scope of PFD, VH, AR, and EL?
+- **principles_coverage** (PIK Gate 9) — Principles coverage table present as a Markdown comment? Every directive from product-craftsmanship.md (§1–§8) and product-discovery-principles.md addressed or marked N/A with justification?
 
 If any gate would fail, revise before outputting the final document.
 
