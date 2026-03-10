@@ -1,5 +1,7 @@
 # Experiment Log — Specification
 
+Version: v1.0
+
 The Experiment Log (EL) records the execution and results of assumption validation activities defined in the Assumption Register. It closes the loop between validation plans and actual evidence, ensuring that the Discovery PRD is informed by validated (or invalidated) assumptions rather than untested beliefs. It is the fourth governed artifact in the Product Intelligence Kit, sitting between the Assumption Register and the Discovery PRD.
 
 ---

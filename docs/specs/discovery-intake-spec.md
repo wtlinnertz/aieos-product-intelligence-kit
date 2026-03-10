@@ -1,5 +1,7 @@
 # Discovery Intake Form — Specification
 
+Version: v1.0
+
 The Discovery Intake Form captures human intent and context before AI-generated artifact production begins. It is the upstream boundary contract for the Product Intelligence Kit — it defines what constitutes valid input for this kit's artifact flow.
 
 This is a **boundary contract**, not a governed artifact. The intake form is human-authored (no AI generation prompt exists). It is validated against this spec to ensure completeness before downstream artifact generation begins.

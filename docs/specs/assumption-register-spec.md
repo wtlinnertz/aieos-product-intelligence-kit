@@ -1,5 +1,7 @@
 # Assumption Register — Specification
 
+Version: v1.0
+
 The Assumption Register (AR) catalogs all assumptions underlying the product initiative, assigns risk levels, and defines validation plans. It makes hidden assumptions visible before requirements are written. It is the third governed artifact in the Product Intelligence Kit.
 
 ---

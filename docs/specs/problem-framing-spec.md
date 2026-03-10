@@ -1,5 +1,7 @@
 # Problem Framing Document — Specification
 
+Version: v1.0
+
 The Problem Framing Document (PFD) structures the problem space for a product initiative. It defines what problem exists, who experiences it, why it matters now, and how large the opportunity is. It is the first governed artifact in the Product Intelligence Kit.
 
 ---

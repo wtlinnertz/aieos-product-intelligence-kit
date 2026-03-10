@@ -1,5 +1,7 @@
 # Value Hypothesis — Specification
 
+Version: v1.0
+
 The Value Hypothesis (VH) defines testable bets about what will create value for users and the business. It translates a structured problem understanding into explicit, falsifiable claims about value creation. It is the second governed artifact in the Product Intelligence Kit.
 
 ---

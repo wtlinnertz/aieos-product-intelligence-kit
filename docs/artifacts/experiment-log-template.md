@@ -14,6 +14,8 @@
 | Upstream AR | {AR artifact ID} |
 | Governance Model Version | 1.0 |
 | Prompt Version | {prompt version} |
+| Spec Version | {spec version} |
+| Principles Version | {principles file versions} |
 
 ---
 

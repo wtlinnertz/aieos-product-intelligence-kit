@@ -1,5 +1,7 @@
 # Discovery PRD — Specification
 
+Version: v1.0
+
 The Discovery PRD (DPRD) is the terminal artifact of the Product Intelligence Kit. It synthesizes the problem framing, value hypotheses, validated assumptions, and experiment results into an engineering-ready product requirements document. It must satisfy the Engineering Execution Kit's PRD specification exactly, as it serves as the handoff artifact to that kit.
 
 ---

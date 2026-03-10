@@ -1,5 +1,7 @@
 # Work Classification — Specification
 
+Version: v1.0
+
 The Work Classification Record captures the routing decision for an incoming work request before any discovery or execution artifacts are produced. It is the entry gate for the Product Intelligence Kit — it must exist and pass validation before the Discovery Intake Form is completed.
 
 This is a **boundary contract**, not a governed artifact. The classification record is human-authored (AI-assisted via `work-classification-prompt.md`). It is validated against this spec to confirm the routing decision is explicit, justified, and free of solution content.

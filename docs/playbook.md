@@ -177,6 +177,8 @@ This helps teams design better experiments and catch assumptions they missed.
 
 **Artifact ID format:** `PFD-{PROJECT}-{NNN}`
 
+**Pre-flight check:** Confirm the Engagement Record exists at `docs/engagement/er-{INITIATIVE}-{NNN}.md` in the consuming project. If it does not exist, create it now — fill in §1 Document Control and leave §2–§7 as stubs. Do not proceed with PFD generation until the ER exists. This check prevents retroactive ER creation, which leads to lost decisions and incomplete records.
+
 **Inputs:**
 - Validated Discovery Intake Form (must pass intake validator)
 - `docs/principles/product-discovery-principles.md` (organizational policy)

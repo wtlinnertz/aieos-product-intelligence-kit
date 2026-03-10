@@ -13,6 +13,8 @@ Fill in what you know. Leave unknown sections blank — the generation prompts w
 - Initiative Name:
 - Governance Model Version: 1.0
 - Prompt Version: N/A
+- Spec Version: {spec version}
+- Principles Version: {principles file versions}
 
 ---
 
