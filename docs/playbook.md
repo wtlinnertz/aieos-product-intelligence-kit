@@ -373,9 +373,24 @@ If a frozen DPRD must change **after** the Engineering Execution Kit has begun w
 
 ## Upstream Interface
 
-This kit accepts strategic direction as informal input. There is no formal upstream handoff contract at this time. The Discovery Intake Form structures whatever strategic context is available.
+### From Strategic Direction Kit (SDK) — Layer 1
 
-When the Strategic Direction Kit is implemented, a formal handoff contract should be established.
+When the initiative originates from a funded strategic bet:
+
+1. The frozen PPR identifies the above-the-line SBR
+2. The frozen SBR provides: thesis (§2), success signal (§3), failure signal (§4), investment envelope (§6)
+3. Reference these when filling the Discovery Intake Form — the SBR's thesis becomes strategic context, the signals inform the Value Hypothesis, and the investment envelope constrains the engagement scope
+
+See `docs/entry-from-sdk.md` for the full boundary briefing.
+
+### Without SDK
+
+Not all PIK engagements require SDK artifacts. SDK is optional when:
+- The initiative is an enhancement within an existing bet's scope (Preset 2)
+- The strategic direction is informal but clear
+- The initiative is triggered by IEK re-discover within an existing bet's scope
+
+When entering PIK without SDK artifacts, the Discovery Intake Form structures whatever strategic context is available informally.
 
 ---
 
