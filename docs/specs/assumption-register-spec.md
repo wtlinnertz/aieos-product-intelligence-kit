@@ -1,6 +1,6 @@
 # Assumption Register — Specification
 
-Version: v1.0
+Version: v1.1
 
 The Assumption Register (AR) catalogs all assumptions underlying the product initiative, assigns risk levels, and defines validation plans. It makes hidden assumptions visible before requirements are written. It is the third governed artifact in the Product Intelligence Kit.
 
@@ -55,6 +55,7 @@ The Assumption Register (AR) catalogs all assumptions underlying the product ini
   - **Impact if false**: What happens to the initiative if this assumption is wrong
   - **Current evidence**: What evidence supports this assumption (or "None")
   - **Validation method**: How this assumption will be tested or verified — must be concrete (user interviews, data analysis, prototype test, survey) not "validate later"
+  - **Origin**: One of: User-stated (explicitly stated by the user in intake or conversation), AI-derived (surfaced by the AI from implicit patterns in upstream artifacts). This field supports AI transparency — it makes clear which assumptions came from the user and which were inferred by the AI during generation.
 - Assumptions must not contain solution proposals or implementation details
 - Assumptions must trace to specific content in the PFD or VH
 
@@ -123,7 +124,7 @@ The Assumption Register (AR) catalogs all assumptions underlying the product ini
 
 ## Hard Gates
 
-1. **assumption_inventory** — At least three assumptions documented with complete structure (statement, source, category, risk level, impact if false, evidence, validation method)
+1. **assumption_inventory** — At least three assumptions documented with complete structure (statement, source, category, risk level, impact if false, evidence, validation method, origin)
 2. **source_traceability** — Every assumption traces to specific content in the frozen PFD or VH
 3. **risk_assessment** — All assumptions have risk levels; risk assessment summary is present
 4. **high_risk_validation** — Every high-risk assumption has a concrete validation plan entry

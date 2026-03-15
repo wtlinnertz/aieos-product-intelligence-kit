@@ -52,6 +52,7 @@ Systematically review the PFD and VH for assumptions in these areas:
 - State the impact if the assumption is false
 - Document current evidence (or "None" if no evidence exists)
 - Define a validation method — be concrete, not vague ("user interviews with 5 representative UG-1 members" not "validate later")
+- Classify the origin: **User-stated** (the user explicitly stated this assumption in the intake or conversation) or **AI-derived** (you surfaced this assumption from implicit patterns in the upstream artifacts — the user did not state it directly). This is an AI transparency requirement — the user must be able to see which assumptions came from them and which you inferred.
 
 ### Risk Assessment
 - Provide an aggregate risk summary
@@ -83,7 +84,7 @@ Systematically review the PFD and VH for assumptions in these areas:
 
 Before outputting the final document, verify each hard gate:
 
-- **assumption_inventory** — At least 3 assumptions documented with complete structure: statement, source (specific section), category, risk level, impact if false, current evidence, validation method?
+- **assumption_inventory** — At least 3 assumptions documented with complete structure: statement, source (specific section), category, risk level, impact if false, current evidence, validation method, origin (User-stated or AI-derived)?
 - **source_traceability** — Every assumption cites a specific section or element in the frozen PFD or VH (not just "PFD" or "VH")?
 - **risk_assessment** — All assumptions have a risk level; risk assessment summary counts assumptions by level; highest-risk assumptions identified explicitly?
 - **high_risk_validation** — Every High-risk assumption has a concrete validation plan entry with method, expected timeline, and owner?

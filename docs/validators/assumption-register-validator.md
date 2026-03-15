@@ -21,7 +21,7 @@ Evaluate each hard gate. A gate is PASS only if the requirement is fully and una
 
 #### 1. assumption_inventory
 - Are at least three assumptions documented?
-- Does each assumption include all required fields: statement, source, category, risk level, impact if false, current evidence, validation method?
+- Does each assumption include all required fields: statement, source, category, risk level, impact if false, current evidence, validation method, origin?
 - Is any required field missing or empty?
 - FAIL if fewer than three assumptions exist or if any assumption is missing required fields
 

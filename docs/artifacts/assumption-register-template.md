@@ -11,7 +11,7 @@
 | Status | Draft / Validated / Freeze Pending / Frozen |
 | Upstream PFD | {PFD artifact ID} |
 | Upstream VH | {VH artifact ID} |
-| Governance Model Version | 1.0 |
+| Governance Model Version | {version} |
 | Prompt Version | {prompt version} |
 | Spec Version | {spec version} |
 | Principles Version | {principles file versions} |
@@ -39,6 +39,7 @@
 | Impact if False | {What happens to the initiative if this assumption is wrong} |
 | Current Evidence | {What evidence supports this assumption, or "None"} |
 | Validation Method | {How this assumption will be tested or verified} |
+| Origin | {User-stated / AI-derived} |
 
 {Repeat for each assumption}
 
