@@ -82,7 +82,7 @@ The DPRD must satisfy 9 hard gates: 6 from the Engineering Execution Kit's downs
 
 ##### 9. principles_coverage
 - Does the DPRD include a principles coverage table (as a Markdown comment)?
-- Does the table account for every directive from `product-craftsmanship.md` (§1–§8) and `product-discovery-principles.md`?
+- Does the table account for every directive from `product-discovery-principles.md` (§1–§10)?
 - Is each directive either addressed in a specific DPRD section or explicitly marked N/A with justification?
 - FAIL if the table is missing, incomplete, or contains unaddressed directives without justification
 

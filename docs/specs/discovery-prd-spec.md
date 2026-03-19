@@ -181,3 +181,4 @@ These gates ensure the DPRD is properly grounded in the upstream discovery artif
 
 7. **upstream_traceability** — Problem traces to PFD, goals trace to VH, assumptions trace to AR, validation status reflects EL
 8. **no_scope_expansion** — No expansion beyond the collective scope of PFD, VH, AR, and EL
+9. **principles_coverage** — DPRD includes a principles coverage table (as a Markdown comment) that accounts for every directive from `product-discovery-principles.md` (§1–§10); each directive is either addressed in a specific DPRD section or explicitly marked N/A with justification

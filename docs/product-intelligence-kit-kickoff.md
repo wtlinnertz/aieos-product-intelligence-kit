@@ -210,7 +210,7 @@ Before handing this to the PRD generation prompt, confirm:
 
 ---
 
-### Governance Model
+## Governance Model
 
 This is the authoritative structural reference for all AIEOS kits. Your kit must follow these rules exactly.
 

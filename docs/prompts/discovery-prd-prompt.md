@@ -17,17 +17,27 @@ Before generating, list each required input and confirm it is present. Confirm t
 
 If any upstream artifact is required to be Frozen and is not, stop and report which artifact is not Frozen. Do not proceed with non-Frozen upstream artifacts. If any other required input is absent, stop and report what is missing.
 
+### Elicitation Protocol (Pre-Generation)
+
+Before generating, apply at least one elicitation technique from `aieos-governance-foundation/docs/elicitation-protocol.md`.
+
+Recommended technique for this artifact: **First Principles Decomposition**.
+
+After applying the technique, record the result as a Markdown comment at the end of the generated artifact:
+<!-- Elicitation: First Principles Decomposition applied. Key insight: {one sentence}. -->
+
+If the technique surfaces a gap or conflict, address it in the generation or flag it in the artifact's Open Questions section. Do not suppress findings.
+
 ### Required Principles Inputs
 
 The following organizational principles files MUST be provided as input and their directives incorporated into the generated DPRD:
-- **Product Craftsmanship Principles** (`product-craftsmanship.md`) — Apply §1 Diagnose Before Prescribing to Problem Statement; §2 Outcomes Over Output to Goals and Acceptance Criteria; §3 Explicit Assumptions to Assumptions; §4 Strategic Alignment to Problem Statement rationale; §5 Clear Scope Boundaries to Non-Goals and Out of Scope; §8 Evidence Over Opinion to problem framing and justification
-- **Product Discovery Principles** (`docs/principles/product-discovery-principles.md`) — Apply all sections as organizational discovery standards
+- **Product Discovery Principles** (`docs/principles/product-discovery-principles.md`) — Apply all sections (§1–§10) as organizational discovery standards: §1 Problem Before Solution to Problem Statement; §2 Evidence Over Opinion to problem framing and justification; §3 Explicit Assumptions to Assumptions; §4 Progressive Certainty to overall artifact flow; §5 Scope Discipline to Non-Goals and Out of Scope; §6 User-Centered Framing to Users/Personas; §7 Measurable Outcomes to Goals and Acceptance Criteria; §8 Intellectual Honesty to Assumptions and Open Questions; §9 Appropriate Depth to overall depth calibration; §10 Independence from Implementation to Requirements
 
 After generating the DPRD, append a principles coverage table as a Markdown comment at the end of the artifact:
 <!-- PRINCIPLES COVERAGE
 | Principles File | Section | DPRD Section Addressed | Status |
 |---|---|---|---|
-(For each directive in each required principles file, confirm it is addressed in a specific DPRD section or marked N/A with justification)
+(For each directive in product-discovery-principles.md §1–§10, confirm it is addressed in a specific DPRD section or marked N/A with justification)
 -->
 
 ## Instructions
@@ -139,7 +149,7 @@ Before outputting the final document, verify each hard gate:
 - **readiness** (EEK Gate 6) — No blocking open questions; document internally consistent (goals, scope, requirements, non-goals do not contradict)?
 - **upstream_traceability** (PIK Gate 7) — Problem traces to PFD; goals trace to VH; assumptions reference AR (ASM-N) with EL status; acceptance criteria trace to VH (SM-N); users reference PFD (UG-N)?
 - **no_scope_expansion** (PIK Gate 8) — No requirement, goal, or user group introduced beyond the collective scope of PFD, VH, AR, and EL?
-- **principles_coverage** (PIK Gate 9) — Principles coverage table present as a Markdown comment? Every directive from product-craftsmanship.md (§1–§8) and product-discovery-principles.md addressed or marked N/A with justification?
+- **principles_coverage** (PIK Gate 9) — Principles coverage table present as a Markdown comment? Every directive from product-discovery-principles.md (§1–§10) addressed or marked N/A with justification?
 
 If any gate would fail, revise before outputting the final document.
 
