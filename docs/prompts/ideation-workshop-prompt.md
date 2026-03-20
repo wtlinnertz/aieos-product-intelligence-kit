@@ -193,6 +193,149 @@ Save to `docs/sdlc/00-ideation-workshop.md`:
 
 ---
 
+## Roadmap-Level Ideation
+
+When the user is thinking at the roadmap level (product direction over 1-5 years, technology strategy, capability lifecycle), use these roadmap techniques instead of the initiative techniques above. The output feeds SDK artifacts (CLA, PCR, TIR) rather than PIK artifacts (WCR, Discovery Intake).
+
+### R1. Future-Back Planning
+
+**Best for:** Vision-driven teams, long-horizon roadmaps.
+
+**Process:**
+1. Ask: "Describe the ideal experience your users/customers have with your product in 3 years. What can they do that they can't today?"
+2. Let the user paint the full picture without constraints
+3. Work backward: "What capabilities must exist to deliver that experience?"
+4. Sequence the capabilities: what must come first? what enables what?
+5. Identify the first 2-3 capabilities that unlock the most downstream value
+
+**Output per capability:** Vision element → Required capability → Dependencies → Sequence position
+
+### R2. Capability Gap Mapping
+
+**Best for:** Existing products, identifying where to invest.
+
+**Process:**
+1. List every "job" the product does today (from CLA if available, or conversationally)
+2. For each: rate importance to users (critical/important/nice-to-have) and current performance (excellent/adequate/poor/missing)
+3. Plot on a 2x2: high-importance + poor-performance = roadmap priority
+4. For each priority gap: "What would 'excellent' look like?"
+
+**Output per gap:** Job → Importance → Current Performance → Target State → Roadmap priority
+
+### R3. Technology Horizon Scan
+
+**Best for:** Technical teams planning 2-5 year technology strategy.
+
+**Process:**
+1. Ask: "What technologies are emerging now that you expect to be mainstream in 2-3 years?"
+2. For each: "What does this enable for your product that's impossible or expensive today?"
+3. Classify: table-stakes (must adopt to stay competitive) vs. differentiator (competitive advantage) vs. moonshot (high risk, high reward)
+4. Map each to a concrete product capability it would enable
+
+**Output per technology:** Technology → Maturity Timeline → Product Enablement → Classification → TIR recommendation (adopt/evaluate/watch)
+
+### R4. Competitive Trajectory Projection
+
+**Best for:** Market-aware teams, competitive positioning.
+
+**Process:**
+1. Ask: "Who are your main competitors? Include 'doing nothing' and 'switching to manual process' as alternatives."
+2. For each: "Where are they investing? What will they likely offer in 2 years that they don't today?"
+3. Map: where will you be differentiated (they can't match you) vs. commoditized (everyone has it) vs. behind (they have it, you don't)?
+4. Roadmap implication: differentiated areas → invest to extend; commoditized → maintain or automate; behind → catch up or concede
+
+**Output:** Competitor trajectory table → differentiation map → roadmap implications
+
+### R5. Sunset Analysis
+
+**Best for:** Overloaded teams, products with accumulated capability debt.
+
+**Process:**
+1. Ask: "What are you maintaining today that provides declining value? What would you STOP doing if you could?"
+2. For each candidate: usage data (if available), maintenance cost (team time), strategic relevance (does it enable other capabilities?)
+3. Classify: ready-to-sunset (low usage, low strategic value) / candidate (declining but dependencies exist) / keep (still needed)
+4. For ready-to-sunset: estimate capacity freed (team-weeks per quarter)
+
+**Output per candidate:** Capability → Usage → Cost → Strategic Relevance → Classification → Capacity Freed
+
+### R6. Customer Journey Evolution
+
+**Best for:** Customer-centric teams, products in changing markets.
+
+**Process:**
+1. Ask: "How does your customer's world change in the next 3 years? Think about: regulation, market dynamics, technology they use, their expectations."
+2. For each change: "How must your product evolve to remain relevant?"
+3. Map changes to capability requirements: new capabilities needed, existing capabilities that must change, capabilities that become irrelevant
+4. Prioritize by: how certain is the change? how soon? how big is the impact?
+
+**Output per change:** Customer world change → Product evolution required → Capability implications → Certainty × Urgency
+
+### R7. Platform Leverage Analysis
+
+**Best for:** Multi-product teams, teams seeking scale.
+
+**Process:**
+1. Ask: "What capabilities could you build once and use across multiple products, features, or teams?"
+2. For each platform candidate: who are the consumers? what's the integration cost? what's the maintenance model?
+3. Score: leverage ratio (number of consumers × value per consumer ÷ build cost)
+4. Identify the top 2-3 platform investments with highest leverage
+
+**Output per platform:** Platform capability → Consumers → Leverage Ratio → Build Cost → Maintenance Model
+
+### Roadmap Technique Selection Guide
+
+| Context | Techniques | Why |
+|---------|-----------|-----|
+| New product, no history | Future-Back + Customer Journey | Start from vision and market evolution |
+| Existing product, feature-rich | Capability Gap + Sunset Analysis | Find investment priorities and free capacity |
+| Technical strategy focus | Technology Horizon + Platform Leverage | Map technology investments to product value |
+| Competitive pressure | Competitive Trajectory + Capability Gap | Understand positioning and close gaps |
+| Overloaded team, too many things | Sunset Analysis + Platform Leverage | Reduce scope and find scale |
+| Annual/quarterly planning cycle | Capability Gap + Future-Back + Sunset Analysis | Comprehensive: where are we, where do we want to be, what do we stop |
+
+### Roadmap Convergence
+
+Same as initiative convergence but with different scoring dimensions:
+
+- **Strategic Value** (H/M/L) — how much does this move the product toward its vision?
+- **Feasibility** (H/M/L) — can we realistically deliver this in the timeframe?
+- **Urgency** (H/M/L) — what happens if we delay?
+
+### Roadmap Output Format
+
+Save to `docs/sdlc/00-roadmap-ideation.md`:
+
+```markdown
+# Roadmap Ideation Record
+
+| Field | Value |
+|-------|-------|
+| Date | {YYYY-MM-DD} |
+| Horizon | {1yr / 3yr / 5yr} |
+| Techniques Used | {list of 2-3 techniques} |
+| Participants | {names + AI} |
+
+## Capability Ideas
+| # | Capability | Source Technique | Strategic Theme | Timeframe | Feasibility | Strategic Value | Urgency |
+|---|-----------|-----------------|----------------|-----------|-------------|----------------|---------|
+
+## Technology Ideas
+| # | Technology | Source Technique | Enables | Classification | Timeframe |
+|---|-----------|-----------------|---------|---------------|-----------|
+
+## Sunset Candidates
+| # | Capability | Rationale | Capacity Freed |
+|---|-----------|-----------|---------------|
+
+## Selected Themes
+(top 2-3 strategic themes with brief rationale)
+
+## Next Step
+CLA creation / PCR update / TIR update
+```
+
+---
+
 ## Relationship to Pipeline
 
 The Ideation Workshop Record is **not a governed artifact** — it has no spec, validator, or hard gates. It is an operational input to the pipeline:

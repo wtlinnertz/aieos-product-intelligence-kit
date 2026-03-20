@@ -11,6 +11,7 @@ You are entering the Product Intelligence Kit from the Strategic Direction Kit (
 - A frozen Portfolio Prioritization Record (PPR) identifying above-the-line bets
 - One or more frozen Strategic Bet Records (SBRs) for the funded bets
 - Strategic context: thesis, success/failure signals, investment envelope, time horizon
+- Optional: frozen Product Capability Roadmap (PCR) — provides broader product context for the specific bet being discovered
 
 ## What This Kit Expects
 
@@ -31,6 +32,7 @@ PIK expects the strategic bet to be frozen, falsifiable, and prioritized. The SB
 |----------|----------|----------------|
 | Strategic Bet Record (SBR) | SDK | Frozen |
 | Portfolio Prioritization Record (PPR) | SDK | Frozen |
+| Product Capability Roadmap (PCR) | SDK | Frozen (optional — provides product context) |
 
 ## Key Sections to Review
 
