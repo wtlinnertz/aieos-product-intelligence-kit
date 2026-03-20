@@ -133,6 +133,18 @@ This helps teams design better experiments and catch assumptions they missed.
 
 **Output:** Comparative analysis across initiatives covering problem severity, value confidence, risk profile, strategic alignment, and sequencing recommendations.
 
+### Ideation Workshop
+
+**Prompt:** `docs/prompts/ideation-workshop-prompt.md`
+
+**When to use:** Before Step 0 (WCR), when the user doesn't yet have a concrete idea to classify. The sherpa offers this when it detects ideation-mode signals ("I don't know what to build", "help me brainstorm", "what should we work on").
+
+**Techniques:** 7 named techniques (Signal Synthesis, Jobs-to-Be-Done, Constraint Removal, Competitive Gap Analysis, Technology Enablement Scan, Inversion, SCAMPER). Select 2–3 per session based on context.
+
+**No AIEOS history required:** 5 of 7 techniques work without prior initiatives. Signal Synthesis is skipped when no sibling ERs exist.
+
+**Output:** Ideation Workshop Record (`docs/sdlc/00-ideation-workshop.md`) — an operational record containing all ideas generated, scoring (impact/confidence/effort), and the selected idea for pipeline entry. Feeds directly into WCR and Discovery Intake.
+
 ---
 
 ## Steps

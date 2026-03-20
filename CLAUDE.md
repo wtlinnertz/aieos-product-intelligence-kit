@@ -37,8 +37,9 @@ Each artifact type has exactly four governing files: spec, template, prompt, val
 
 ## Utility Prompts
 
-Five utility prompts support the flow but do not produce governed artifacts:
+Six utility prompts support the flow but do not produce governed artifacts:
 
+- **Ideation Workshop** (`ideation-workshop-prompt.md`) — Structured ideation using 7 named techniques when the user doesn't have a concrete idea yet. Produces an Ideation Workshop Record that feeds into WCR and Discovery Intake. Offered before Step 0.
 - **Brownfield Analysis** (`brownfield-analysis-prompt.md`) — Analyzes existing systems to pre-fill intake forms
 - **Stakeholder Alignment** (`stakeholder-alignment-prompt.md`) — Surfaces and classifies stakeholder conflicts
 - **Assumption Stress Test** (`assumption-stress-test-prompt.md`) — Adversarial analysis of assumptions before experiments
