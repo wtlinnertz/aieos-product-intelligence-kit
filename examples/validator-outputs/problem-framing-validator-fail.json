@@ -1,0 +1,36 @@
+{
+  "status": "FAIL",
+  "summary": "PFD fails 3 hard gates. The problem statement lacks a why-now rationale, opportunity sizing has no stated basis, and the document introduces a solution proposal that violates scope.",
+  "hard_gates": {
+    "problem_definition": "FAIL",
+    "user_landscape": "PASS",
+    "pain_points": "PASS",
+    "opportunity": "FAIL",
+    "current_state": "PASS",
+    "no_solutions": "FAIL"
+  },
+  "blocking_issues": [
+    {
+      "gate": "problem_definition",
+      "description": "The problem statement identifies who experiences the problem and what the problem is, but contains no 'why now' rationale. The urgency condition (competitor launch, churn data, deadline) is absent.",
+      "location": "§3 Problem Statement"
+    },
+    {
+      "gate": "opportunity",
+      "description": "Opportunity sizing is present ($3M ARR at risk) but no basis for the estimate is stated. A number without a source or methodology does not satisfy the hard gate.",
+      "location": "§6 Opportunity Sizing"
+    },
+    {
+      "gate": "no_solutions",
+      "description": "Section §9 Constraints contains the statement: 'The team believes a rule-based classification engine is the right approach.' This is a solution proposal and must not appear in a problem framing document.",
+      "location": "§9 Constraints"
+    }
+  ],
+  "warnings": [
+    {
+      "description": "Pain point for UG-3 (Executive Stakeholders) lists no frequency. A pain point without frequency cannot be prioritized or traced to a hypothesis.",
+      "location": "§5 Pain Points — UG-3"
+    }
+  ],
+  "completeness_score": 58
+}

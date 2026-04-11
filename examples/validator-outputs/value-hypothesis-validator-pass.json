@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "summary": "VH-TASKFLOW-NOTIF-001 satisfies all 6 hard gates and is ready for freeze and Assumption Register generation.",
+  "hard_gates": {
+    "hypothesis_present": "PASS",
+    "falsifiable": "PASS",
+    "user_traceability": "PASS",
+    "no_scope_expansion": "PASS",
+    "no_solutions": "PASS",
+    "metrics_defined": "PASS"
+  },
+  "blocking_issues": [],
+  "warnings": [
+    {
+      "description": "HYP-3 (churn reduction hypothesis) sets a 2-quarter measurement window. This is a long lag time for validation — the assumption register should flag this dependency explicitly.",
+      "location": "HYP-3 — Evidence Criteria"
+    }
+  ],
+  "completeness_score": 97
+}

@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "summary": "Discovery intake form is complete and satisfies all 6 hard gates. Sufficient input quality to proceed to Problem Framing Document generation.",
+  "hard_gates": {
+    "problem_defined": "PASS",
+    "users_identified": "PASS",
+    "urgency_stated": "PASS",
+    "evidence_present": "PASS",
+    "scope_bounded": "PASS",
+    "no_solutions": "PASS"
+  },
+  "blocking_issues": [],
+  "warnings": [
+    {
+      "description": "Opportunity sizing is stated as an estimate range ($2M–$4M ARR at risk) without an explicit methodology. Acceptable for intake — the PFD will need to provide a stated basis.",
+      "location": "Opportunity Sizing"
+    }
+  ],
+  "completeness_score": 92
+}
