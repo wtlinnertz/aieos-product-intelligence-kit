@@ -1,6 +1,6 @@
-# Session Setup — Product Intelligence Kit
+# Session Setup: Product Intelligence Kit
 
-Use this file to set up an AI session for each PIK artifact. Find the section for the artifact you are generating or validating. Follow the checklist before starting.
+Use this file to set up an AI session for each PIK artifact. Find the section for the artifact you're generating or validating. Follow the checklist before starting.
 
 **Rule:** Generate and validate in separate sessions. Do not self-validate.
 
@@ -13,8 +13,8 @@ Use this file to set up an AI session for each PIK artifact. Find the section fo
 **Note:** The WCR is human-authored with AI assistance. The prompt provides classification guidance, not a generation template.
 
 **Required Inputs (confirm before starting):**
-- [ ] Work request or problem statement — Present?
-- [ ] Stakeholder context (requestor, urgency, known constraints) — Present?
+- [ ] Work request or problem statement: Present?
+- [ ] Stakeholder context (requestor, urgency, known constraints): Present?
 
 **Pre-Flight Gate Check (verify before generating):**
 - [ ] `document_control`: ID, owner, date, and status fields planned
@@ -31,21 +31,21 @@ Use this file to set up an AI session for each PIK artifact. Find the section fo
 4. Validate in a separate session: `docs/validators/work-classification-validator.md`
 
 **Common Failure to Avoid:**
-Composite types (e.g., "Feature / Enhancement") — select exactly one type from the enumerated list.
+Composite types (e.g., "Feature / Enhancement"): select exactly one type from the enumerated list.
 
 ---
 
 ## Discovery Intake Form (boundary contract)
 
-**What you're creating:** A structured description of the problem that will gate discovery. This is a human-authored form — no AI generation.
+**What you're creating:** A structured description of the problem that will gate discovery. This is a human-authored form: no AI generation.
 
 **Note:** Validate the completed intake form before generating any discovery artifacts. Fixing intake gate failures later is expensive.
 
 **Required Inputs (confirm before starting):**
-- [ ] Completed WCR — Frozen?
-- [ ] Problem statement — Present and free of solution language?
-- [ ] User group description — Named and specific?
-- [ ] Supporting evidence — At least one piece?
+- [ ] Completed WCR: Frozen?
+- [ ] Problem statement: Present and free of solution language?
+- [ ] User group description: Named and specific?
+- [ ] Supporting evidence: At least one piece?
 
 **Pre-Flight Gate Check (verify before generating):**
 - [ ] `problem_defined`: Problem statement describes a gap or pain, not a feature
@@ -56,22 +56,22 @@ Composite types (e.g., "Feature / Enhancement") — select exactly one type from
 - [ ] `no_solutions`: No solutions, technology choices, or implementation details present
 
 **Session Setup:**
-1. Use: `docs/artifacts/discovery-intake-template.md` — fill manually, no prompt
+1. Use: `docs/artifacts/discovery-intake-template.md`: fill manually, no prompt
 2. Validate in a separate session: `docs/validators/discovery-intake-validator.md`
 3. Do not generate PFD until the intake form passes validation
 
 **Common Failure to Avoid:**
-Solution language in the problem statement (e.g., "We need a notification service") — rewrite to describe the gap: who cannot do what, and what consequence follows.
+Solution language in the problem statement (e.g., "We need a notification service"): rewrite to describe the gap: who cannot do what, and what consequence follows.
 
 ---
 
 ## Problem Framing Document (PFD-{PROJECT}-{NNN})
 
-**What you're creating:** A structured framing of the problem space — who is affected, what they cannot do, and what the opportunity represents. No solutions.
+**What you're creating:** A structured framing of the problem space: who is affected, what they cannot do, and what the opportunity represents. No solutions.
 
 **Required Inputs (confirm before starting):**
-- [ ] Validated Discovery Intake Form — Frozen?
-- [ ] WCR — Frozen?
+- [ ] Validated Discovery Intake Form: Frozen?
+- [ ] WCR: Frozen?
 
 **Pre-Flight Gate Check (verify before generating):**
 - [ ] `problem_definition`: Can state the problem as an observable gap (not a solution direction)
@@ -88,17 +88,17 @@ Solution language in the problem statement (e.g., "We need a notification servic
 4. Validate in a separate session: `docs/validators/problem-framing-validator.md`
 
 **Common Failure to Avoid:**
-Solution-adjacent framing ("We need to improve onboarding") — rewrite as an observable gap: who is affected, what they cannot accomplish, what the consequence is.
+Solution-adjacent framing ("We need to improve onboarding"): rewrite as an observable gap: who is affected, what they cannot accomplish, what the consequence is.
 
 ---
 
 ## Value Hypothesis (VH-{PROJECT}-{NNN})
 
-**What you're creating:** A falsifiable statement of what value would be delivered if the problem is solved — with measurable success criteria. No solutions.
+**What you're creating:** A falsifiable statement of what value would be delivered if the problem is solved: with measurable success criteria. No solutions.
 
 **Required Inputs (confirm before starting):**
-- [ ] Frozen PFD (PFD-{PROJECT}-{NNN}) — Frozen?
-- [ ] Frozen Discovery Intake Form — Frozen?
+- [ ] Frozen PFD (PFD-{PROJECT}-{NNN}): Frozen?
+- [ ] Frozen Discovery Intake Form: Frozen?
 
 **Pre-Flight Gate Check (verify before generating):**
 - [ ] `hypothesis_present`: Can state hypothesis in "If [condition], then [measurable outcome]" form
@@ -115,7 +115,7 @@ Solution-adjacent framing ("We need to improve onboarding") — rewrite as an ob
 4. Validate in a separate session: `docs/validators/value-hypothesis-validator.md`
 
 **Common Failure to Avoid:**
-Hypothesis containing a solution ("We will build a wizard that will increase completions by 20%") — rewrite to test the value bet: "If users can complete onboarding in under 3 minutes, completion rate will increase by 20%."
+Hypothesis containing a solution ("We will build a wizard that will increase completions by 20%"): rewrite to test the value bet: "If users can complete onboarding in under 3 minutes, completion rate will increase by 20%."
 
 ---
 
@@ -124,8 +124,8 @@ Hypothesis containing a solution ("We will build a wizard that will increase com
 **What you're creating:** A catalog of all assumptions underlying the hypothesis, with risk assessment and validation plans for high-risk assumptions.
 
 **Required Inputs (confirm before starting):**
-- [ ] Frozen PFD — Frozen?
-- [ ] Frozen VH — Frozen?
+- [ ] Frozen PFD: Frozen?
+- [ ] Frozen VH: Frozen?
 
 **Pre-Flight Gate Check (verify before generating):**
 - [ ] `assumption_inventory`: Have identified ≥3 distinct assumptions (more for complex initiatives)
@@ -143,19 +143,19 @@ Hypothesis containing a solution ("We will build a wizard that will increase com
 5. Validate in a separate session: `docs/validators/assumption-register-validator.md`
 
 **Common Failure to Avoid:**
-Source references citing only "PFD" without section — use specific section and item IDs (e.g., "PFD §3 UG-1") so each assumption is independently traceable.
+Source references citing only "PFD" without section: use specific section and item IDs (e.g., "PFD §3 UG-1") so each assumption is independently traceable.
 
 ---
 
 ## Experiment Log (EL-{PROJECT}-{NNN})
 
-**What you're creating:** A record of assumption validation experiments — what was tested, what was observed, and what conclusions follow. Generated after experiments are complete, not before.
+**What you're creating:** A record of assumption validation experiments: what was tested, what was observed, and what conclusions follow. Generated after experiments are complete, not before.
 
 **Required Inputs (confirm before starting):**
-- [ ] Frozen PFD — Frozen?
-- [ ] Frozen VH — Frozen?
-- [ ] Frozen AR — Frozen?
-- [ ] Actual experiment results — Complete? (Do not generate EL before experiments run)
+- [ ] Frozen PFD: Frozen?
+- [ ] Frozen VH: Frozen?
+- [ ] Frozen AR: Frozen?
+- [ ] Actual experiment results: Complete? (Do not generate EL before experiments run)
 
 **Pre-Flight Gate Check (verify before generating):**
 - [ ] `experiment_present`: At least one experiment has been completed and results are in hand
@@ -168,28 +168,28 @@ Source references citing only "PFD" without section — use specific section and
 **Session Setup:**
 1. Load: `docs/prompts/experiment-log-prompt.md`
 2. Provide: Full text of frozen AR (assumption IDs and risk assessments)
-3. Provide: Experiment results — organized by assumption ID, with raw observations separate from conclusions
+3. Provide: Experiment results: organized by assumption ID, with raw observations separate from conclusions
 4. Provide: `docs/specs/experiment-log-spec.md` (or confirm it is in context)
 5. Validate in a separate session: `docs/validators/experiment-log-validator.md`
 
 **Common Failure to Avoid:**
-Conclusions stated without supporting observations ("users found the feature helpful") — separate what was observed (quotes, metrics, behaviors) from what it means (the interpretation).
+Conclusions stated without supporting observations ("users found the feature helpful"): separate what was observed (quotes, metrics, behaviors) from what it means (the interpretation).
 
 ---
 
 ## Discovery PRD (DPRD-{PROJECT}-{NNN})
 
-**What you're creating:** Engineering-ready requirements that serve as the handoff artifact to the Engineering Execution Kit. Scope is bounded by all upstream frozen artifacts — no expansion permitted.
+**What you're creating:** Engineering-ready requirements that serve as the handoff artifact to the Engineering Execution Kit. Scope is bounded by all upstream frozen artifacts: no expansion permitted.
 
 **Required Inputs (confirm before starting):**
-- [ ] Frozen PFD — Frozen?
-- [ ] Frozen VH — Frozen?
-- [ ] Frozen AR — Frozen?
-- [ ] Frozen EL — Frozen? (EL must show a "proceed" decision)
+- [ ] Frozen PFD: Frozen?
+- [ ] Frozen VH: Frozen?
+- [ ] Frozen AR: Frozen?
+- [ ] Frozen EL: Frozen? (EL must show a "proceed" decision)
 
 **Pre-Flight Gate Check (verify before generating):**
 - [ ] `problem_definition`: PFD §1 problem statement ready to carry forward verbatim
-- [ ] `goals`: VH metrics and hypotheses are the source of goals — not new goals
+- [ ] `goals`: VH metrics and hypotheses are the source of goals: not new goals
 - [ ] `scope`: Can bound scope to what is traceable in upstream artifacts
 - [ ] `requirements`: Requirements will describe outcomes/capabilities, not implementation
 - [ ] `constraints`: Known constraints from intake and AR are ready to document
@@ -205,4 +205,4 @@ Conclusions stated without supporting observations ("users found the feature hel
 5. After validation PASS: deliver to Engineering Execution Kit as `docs/sdlc/01-prd.md`
 
 **Common Failure to Avoid:**
-Requirements that prescribe implementation ("The system SHALL use microservices architecture") — rewrite as capability or outcome requirements: what the system must do, not how it does it.
+Requirements that prescribe implementation ("The system SHALL use microservices architecture"): rewrite as capability or outcome requirements: what the system must do, not how it does it.

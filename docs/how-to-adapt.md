@@ -7,7 +7,7 @@ This guide helps organizations adopt and customize the Product Intelligence Kit 
 ## What Can Be Adapted
 
 ### Principles (Fully Customizable)
-The files in `docs/principles/` represent your organization's product discovery standards. These are input material — they inform artifact generation but are not governed artifacts. Modify them freely to reflect your organization's values and practices.
+The files in `docs/principles/` represent your organization's product discovery standards. These are input material: they inform artifact generation but are not governed artifacts. Modify them freely to reflect your organization's values and practices.
 
 Examples of customization:
 - Adjust the evidence standards to match your research maturity
@@ -37,7 +37,6 @@ You must not:
 - Remove references to specs and templates
 - Add instructions that contradict the spec
 
----
 
 ## What Must Not Be Adapted
 
@@ -51,18 +50,17 @@ Specs define the hard gates and content rules. Modifying specs changes what "goo
 Validators must evaluate against specs exactly. If you change a spec, update the corresponding validator. Never make validators "helpful" or "lenient."
 
 ### Artifact Flow (Sequence Fixed)
-The five-artifact sequence (PFD → VH → AR → EL → DPRD) and the freeze-before-promote rule are structural. Changing the flow requires understanding the dependency chain — each downstream artifact has hard-gate dependencies on all upstream artifacts.
+The five-artifact sequence (PFD → VH → AR → EL → DPRD) and the freeze-before-promote rule are structural. Changing the flow requires understanding the dependency chain. Each downstream artifact has hard-gate dependencies on all upstream artifacts.
 
 ### Hard Gates (Quality Bar Fixed)
 Hard gates define the minimum quality bar. Removing a hard gate lowers the quality floor for all artifacts. Add gates if your organization needs stricter standards, but do not remove existing ones.
 
----
 
 ## Common Adaptations
 
 ### Lightweight Mode
 For smaller initiatives where full rigor is excessive:
-- The playbook still applies — do not skip artifacts
+- The playbook still applies, do not skip artifacts
 - Artifacts may be shorter, but all required sections and hard gates still apply
 - The Discovery Intake Form must still pass intake validation (6 hard gates), but responses can be concise
 - The Discovery Intake Form may have many optional sections marked "Not applicable"
@@ -81,7 +79,7 @@ For large, high-stakes initiatives:
 For regulatory, legal, or policy-driven initiatives:
 - Include `docs/principles/compliance-discovery-principles.md` in all generation sessions
 - The principles file provides interpretive guidance for each artifact type (e.g., "Opportunity Sizing" becomes "Risk Exposure," hypotheses reference regulatory clauses)
-- All specs, templates, and hard gates remain unchanged — the principles file guides how to fill them appropriately
+- All specs, templates, and hard gates remain unchanged: the principles file guides how to fill them appropriately
 - See the compliance principles file for detailed guidance on PFD, VH, AR, EL, and DPRD adaptation
 
 ### Brownfield Adaptation
@@ -97,7 +95,6 @@ When mapping kit concepts to specific tools (Jira, Notion, Confluence, etc.):
 - Keep bindings out of specs, templates, prompts, and validators
 - Example: `docs/bindings/jira-mapping.md` maps PFD/VH/AR/DPRD to Jira issue types
 
----
 
 ## Versioning Your Adaptations
 

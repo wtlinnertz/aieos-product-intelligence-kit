@@ -6,12 +6,11 @@ This guide explains how to use AI assistants to generate and validate Product In
 
 ## General Principles
 
-1. **One artifact per session** — Generate each artifact in its own AI session
-2. **Separate generation and validation** — Never generate and validate in the same session
-3. **Include full inputs** — Always include complete frozen upstream artifacts; do not summarize
-4. **Human in the loop** — AI generates and validates; humans review and freeze
+1. **One artifact per session**. Generate each artifact in its own AI session
+2. **Separate generation and validation**. Never generate and validate in the same session
+3. **Include full inputs**. Always include complete frozen upstream artifacts; do not summarize
+4. **Human in the loop**. AI generates and validates; humans review and freeze
 
----
 
 ## Session Setup
 
@@ -32,12 +31,12 @@ Include these files in the AI session context:
 3. The **artifact** to be validated
 4. All **frozen upstream artifacts** (for traceability checks)
 
-#### Starting a Validation Session — Step by Step
+#### Starting a Validation Session. Step by Step
 
 Separate sessions is the rule. Here is what "separate session" means operationally:
 
-1. **End the generation session.** Close the conversation or start a new one — do not continue in the same thread.
-2. **Open a fresh conversation.** No prior context should carry over. If your AI tool has project-level instructions (CLAUDE.md), those are fine — they don't contain artifact content.
+1. **End the generation session.** Close the conversation or start a new one. Do not continue in the same thread.
+2. **Open a fresh conversation.** No prior context should carry over. If your AI tool has project-level instructions (CLAUDE.md), those are fine. They don't contain artifact content.
 3. **Do not paste generation inputs.** The generation session included the prompt, spec, template, and principles. Do not include any of these in the validation session. The validator is the only behavior instruction needed.
 4. **Paste in this order:**
    - The spec (`{type}-spec.md`)
@@ -45,7 +44,7 @@ Separate sessions is the rule. Here is what "separate session" means operational
    - The frozen upstream artifacts (PFD, VH, AR, EL as applicable for traceability checks)
    - The artifact to validate
 5. **Give a single instruction:** "Validate this artifact against the spec and validator. Output JSON only."
-6. **Review the output** — if status is FAIL, fix only the blocking issues listed. Do not redesign.
+6. **Review the output**. If status is fail, fix only the blocking issues listed. do not redesign.
 7. **Re-run in a new session** if you make fixes (same rules apply).
 
 ### For Utility Prompt Sessions
@@ -54,9 +53,8 @@ Include these files in the AI session context:
 1. The **utility prompt** you're using
 2. The **inputs** specified by the prompt (e.g., work request, frozen artifacts)
 
-Utility prompts do not produce governed artifacts — their output is analysis for human consumption.
+Utility prompts do not produce governed artifacts. Their output is analysis for human consumption.
 
----
 
 ## Step-by-Step Workflow
 
@@ -64,7 +62,7 @@ Utility prompts do not produce governed artifacts — their output is analysis f
 
 **When to use:** Before filling the Discovery Intake Form, to determine whether this work needs full discovery or should be routed elsewhere.
 
-**Session — include:**
+**Session. Include:**
 - `docs/prompts/work-classification-prompt.md`
 - The incoming work request description
 
@@ -74,13 +72,13 @@ Utility prompts do not produce governed artifacts — their output is analysis f
 **Possible outcomes:**
 - **Full discovery**: Proceed to Step 0 (fill Discovery Intake Form)
 - **Targeted discovery**: Proceed to Step 0, but note which artifacts can be abbreviated
-- **No discovery**: Route to engineering triage, incident management, or backlog — this kit is not needed
+- **No discovery**: Route to engineering triage, incident management, or backlog: this kit is not needed
 
 ### Pre-Step: Brownfield Analysis (Optional)
 
 **When to use:** Before filling the Discovery Intake Form, when the initiative involves an existing system and you have system documentation available.
 
-**Session — include:**
+**Session. Include:**
 - `docs/prompts/brownfield-analysis-prompt.md`
 - Existing system documentation (architecture docs, API specs, user guides, support ticket data, etc.)
 - Optional: focus area description
@@ -93,11 +91,11 @@ Utility prompts do not produce governed artifacts — their output is analysis f
 ### Step 0: Fill and Validate the Discovery Intake Form
 
 1. Open `docs/artifacts/discovery-intake-template.md`
-2. Fill in what you know — leave unknowns blank (or start from brownfield analysis output if available)
+2. Fill in what you know. Leave unknowns blank (or start from brownfield analysis output if available)
 3. Complete the checklist at the bottom
-4. This is human work — do not use AI to fill the intake form (except for brownfield analysis output, which must be human-reviewed)
+4. This is human work. Do not use ai to fill the intake form (except for brownfield analysis output, which must be human-reviewed)
 
-**Validation session — include:**
+**Validation session. Include:**
 - `docs/validators/discovery-intake-validator.md`
 - `docs/specs/discovery-intake-spec.md`
 - Your completed Discovery Intake Form
@@ -112,7 +110,7 @@ Utility prompts do not produce governed artifacts — their output is analysis f
 
 **When to use:** When multiple stakeholders have provided input and their views may conflict. Run before PFD generation to surface and resolve disagreements.
 
-**Session — include:**
+**Session. Include:**
 - `docs/prompts/stakeholder-alignment-prompt.md`
 - Each stakeholder's input (labeled by stakeholder name/role)
 - Optional: draft PFD (if one exists)
@@ -124,7 +122,7 @@ Utility prompts do not produce governed artifacts — their output is analysis f
 
 ### Step 1: Generate Problem Framing Document
 
-**Generation session — include:**
+**Generation session. Include:**
 - `docs/prompts/problem-framing-prompt.md`
 - `docs/specs/problem-framing-spec.md`
 - `docs/artifacts/problem-framing-template.md`
@@ -135,7 +133,7 @@ Utility prompts do not produce governed artifacts — their output is analysis f
 **Instruction to AI:**
 > Generate a Problem Framing Document from the provided Discovery Intake Form. Follow the prompt instructions, satisfy all spec requirements, and use the template structure exactly.
 
-**Validation session (new session) — include:**
+**Validation session (new session). Include:**
 - `docs/validators/problem-framing-validator.md`
 - `docs/specs/problem-framing-spec.md`
 - The generated PFD
@@ -148,7 +146,7 @@ Utility prompts do not produce governed artifacts — their output is analysis f
 
 ### Step 2: Generate Value Hypothesis
 
-**Generation session — include:**
+**Generation session. Include:**
 - `docs/prompts/value-hypothesis-prompt.md`
 - `docs/specs/value-hypothesis-spec.md`
 - `docs/artifacts/value-hypothesis-template.md`
@@ -158,7 +156,7 @@ Utility prompts do not produce governed artifacts — their output is analysis f
 **Instruction to AI:**
 > Generate a Value Hypothesis document from the provided frozen Problem Framing Document. Follow the prompt instructions, satisfy all spec requirements, and use the template structure exactly.
 
-**Validation session (new session) — include:**
+**Validation session (new session). Include:**
 - `docs/validators/value-hypothesis-validator.md`
 - `docs/specs/value-hypothesis-spec.md`
 - The generated VH
@@ -169,7 +167,7 @@ Utility prompts do not produce governed artifacts — their output is analysis f
 
 ### Step 3: Generate Assumption Register
 
-**Generation session — include:**
+**Generation session. Include:**
 - `docs/prompts/assumption-register-prompt.md`
 - `docs/specs/assumption-register-spec.md`
 - `docs/artifacts/assumption-register-template.md`
@@ -179,7 +177,7 @@ Utility prompts do not produce governed artifacts — their output is analysis f
 **Instruction to AI:**
 > Generate an Assumption Register from the provided frozen Problem Framing Document and Value Hypothesis. Follow the prompt instructions, satisfy all spec requirements, and use the template structure exactly.
 
-**Validation session (new session) — include:**
+**Validation session (new session). Include:**
 - `docs/validators/assumption-register-validator.md`
 - `docs/specs/assumption-register-spec.md`
 - The generated AR
@@ -193,7 +191,7 @@ Utility prompts do not produce governed artifacts — their output is analysis f
 
 **When to use:** After freezing the AR, before conducting experiments. Helps design better experiments and catch blind spots.
 
-**Session — include:**
+**Session. Include:**
 - `docs/prompts/assumption-stress-test-prompt.md`
 - Frozen AR
 - Frozen PFD
@@ -208,7 +206,7 @@ Utility prompts do not produce governed artifacts — their output is analysis f
 
 **When to use:** After freezing the AR, when other initiatives are also active with frozen ARs. Identifies conflicts before committing resources to experiments.
 
-**Session — include:**
+**Session. Include:**
 - `docs/prompts/cross-initiative-conflict-prompt.md`
 - This initiative's frozen AR
 - Other initiatives' frozen ARs
@@ -223,7 +221,7 @@ Utility prompts do not produce governed artifacts — their output is analysis f
 
 **Prerequisites:** The team has conducted validation experiments based on the AR's validation plans. Experiment results data must be gathered before this step.
 
-**Generation session — include:**
+**Generation session. Include:**
 - `docs/prompts/experiment-log-prompt.md`
 - `docs/specs/experiment-log-spec.md`
 - `docs/artifacts/experiment-log-template.md`
@@ -235,7 +233,7 @@ Utility prompts do not produce governed artifacts — their output is analysis f
 **Instruction to AI:**
 > Generate an Experiment Log from the provided frozen upstream artifacts and experiment results data. Follow the prompt instructions, satisfy all spec requirements, and use the template structure exactly.
 
-**Validation session (new session) — include:**
+**Validation session (new session). Include:**
 - `docs/validators/experiment-log-validator.md`
 - `docs/specs/experiment-log-spec.md`
 - The generated EL
@@ -250,7 +248,7 @@ Utility prompts do not produce governed artifacts — their output is analysis f
 
 ### Step 5: Generate Discovery PRD
 
-**Generation session — include:**
+**Generation session. Include:**
 - `docs/prompts/discovery-prd-prompt.md`
 - `docs/specs/discovery-prd-spec.md`
 - `docs/artifacts/discovery-prd-template.md`
@@ -262,7 +260,7 @@ Utility prompts do not produce governed artifacts — their output is analysis f
 **Instruction to AI:**
 > Generate a Discovery PRD from the provided frozen upstream artifacts. Follow the prompt instructions, satisfy all spec requirements (including all Engineering Execution Kit downstream gates), and use the template structure exactly.
 
-**Validation session (new session) — include:**
+**Validation session (new session). Include:**
 - `docs/validators/discovery-prd-validator.md`
 - `docs/specs/discovery-prd-spec.md`
 - The generated DPRD
@@ -278,7 +276,7 @@ Utility prompts do not produce governed artifacts — their output is analysis f
 
 **When to use:** When multiple initiatives have frozen DPRDs and the organization must decide which to fund or sequence.
 
-**Session — include:**
+**Session. Include:**
 - `docs/prompts/initiative-prioritization-prompt.md`
 - Frozen DPRDs (and their upstream artifacts) for each initiative being compared
 - Optional: resource constraints, strategic priorities, cross-initiative conflict analysis output
@@ -286,16 +284,15 @@ Utility prompts do not produce governed artifacts — their output is analysis f
 **Instruction to AI:**
 > Compare these initiatives across problem severity, value confidence, risk profile, strategic alignment, and scope. Produce a comparison matrix, sequencing recommendations, and risk-adjusted ranking.
 
-**Output:** Use the analysis to support portfolio prioritization decisions. The prompt does not make the decision — it presents structured evidence for human decision-makers.
+**Output:** Use the analysis to support portfolio prioritization decisions. The prompt does not make the decision. It presents structured evidence for human decision-makers.
 
----
 
 ## Tips
 
 ### Context Window Management
 The downstream sessions (EL, DPRD) require multiple frozen artifacts as input. If context window limits are a concern:
 - Use AI models with larger context windows for later artifacts
-- Ensure all upstream artifacts are included in full — partial inclusion violates session discipline
+- Ensure all upstream artifacts are included in full, partial inclusion violates session discipline
 
 ### Iteration
 - Each regeneration attempt should be in a **new session** with the validator feedback included as additional context
@@ -304,7 +301,7 @@ The downstream sessions (EL, DPRD) require multiple frozen artifacts as input. I
 
 ### Handling Validation Failures
 When a validator returns FAIL:
-1. Read the `blocking_issues` — these tell you exactly what failed
+1. Read the `blocking_issues`. these tell you exactly what failed
 2. Check if the issue is in the artifact or in the upstream input
 3. If upstream: trigger re-entry protocol (see playbook)
 4. If in the artifact: regenerate with the blocking issues as additional constraints
@@ -313,7 +310,7 @@ When a validator returns FAIL:
 When you freeze an artifact:
 1. Update the Document Control status to "Frozen"
 2. Fill in the Freeze Declaration section (date, approver, statement)
-3. The artifact is now immutable — changes require re-entry protocol
+3. The artifact is now immutable. Changes require re-entry protocol
 
 ### Experiment Timing
-The Experiment Log requires actual experiment results — the team must conduct validation activities between Step 3 (AR freeze) and Step 4 (EL generation). This is the part of the process where human research, data analysis, and testing happen. The AI structures and documents the results; it does not conduct the experiments.
+The Experiment Log requires actual experiment results. The team must conduct validation activities between step 3 (ar freeze) and step 4 (el generation). this is the part of the process where human research, data analysis, and testing happen. the ai structures and documents the results; it does not conduct the experiments.

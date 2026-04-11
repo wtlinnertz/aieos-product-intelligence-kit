@@ -1,8 +1,8 @@
 # aieos-product-intelligence-kit
 
-The **Product Intelligence Kit** governs the space between strategic intent and engineering-ready product requirements. It is part of the [AIEOS](https://github.com/your-org/aieos) system.
+The **Product Intelligence Kit** governs the space between strategic intent and engineering-ready product requirements. It's part of the [AIEOS](https://github.com/your-org/aieos) system.
 
-## What This Kit Does
+## What this kit does
 
 This kit transforms a product problem into a validated, engineering-ready Product Requirements Document (PRD) through a structured discovery process. It produces five artifacts in sequence:
 
@@ -13,10 +13,11 @@ This kit transforms a product problem into a validated, engineering-ready Produc
 5. **Discovery PRD** — Engineering-ready requirements that satisfy the Engineering Execution Kit's PRD specification
 
 Two utility prompts support the flow:
-- **Work Classification** — Routes incoming work to the right process (prevents efficient waste)
+
+- **Work Classification** — Routes incoming work to the right process (avoids busywork)
 - **Assumption Stress Test** — Adversarial analysis to strengthen assumptions before experiments
 
-## Quick Start
+## Quick start
 
 1. Optionally run the [Work Classification Prompt](docs/prompts/work-classification-prompt.md) to determine if this work needs full discovery
 2. Fill out the [Discovery Intake Form](docs/artifacts/discovery-intake-template.md)
@@ -34,7 +35,7 @@ Two utility prompts support the flow:
 | [How to Use with AI](docs/how-to-use-with-ai.md) | AI session setup and workflow |
 | [Governance Model](docs/governance-model.md) | AIEOS structural rules |
 
-## Artifact Specifications
+## Artifact specifications
 
 | Artifact | Spec | Template | Prompt | Validator |
 |----------|------|----------|--------|-----------|
@@ -44,7 +45,7 @@ Two utility prompts support the flow:
 | Experiment Log | [spec](docs/specs/experiment-log-spec.md) | [template](docs/artifacts/experiment-log-template.md) | [prompt](docs/prompts/experiment-log-prompt.md) | [validator](docs/validators/experiment-log-validator.md) |
 | Discovery PRD | [spec](docs/specs/discovery-prd-spec.md) | [template](docs/artifacts/discovery-prd-template.md) | [prompt](docs/prompts/discovery-prd-prompt.md) | [validator](docs/validators/discovery-prd-validator.md) |
 
-## Utility Prompts
+## Utility prompts
 
 | Prompt | Purpose |
 |--------|---------|
@@ -55,7 +56,7 @@ Two utility prompts support the flow:
 | [Cross-Initiative Conflict](docs/prompts/cross-initiative-conflict-prompt.md) | Detect assumption conflicts across parallel initiatives |
 | [Initiative Prioritization](docs/prompts/initiative-prioritization-prompt.md) | Compare and rank competing initiatives for resource decisions |
 
-## Boundary Contracts
+## Boundary contracts
 
 - **Upstream:** Discovery Intake Form validated against [intake spec](docs/specs/discovery-intake-spec.md) (6 hard gates)
 - **Downstream:** Produces a frozen Discovery PRD for the [Engineering Execution Kit](https://github.com/your-org/aieos-engineering-execution-kit) (8 hard gates)

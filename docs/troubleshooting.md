@@ -1,10 +1,10 @@
-# Troubleshooting Guide — Product Intelligence Kit
+# Troubleshooting Guide: Product Intelligence Kit
 
 ## How to Use This Guide
 
 When a validator returns FAIL, find the failing gate in the table below. The Remediation column describes the specific fix required. Reopen the artifact, apply the remediation, and rerun the validator in a new session.
 
-**Do not embed fix attempts in your validation session.** Validators and generation are separate sessions.
+Validators and generation are separate sessions. Don't embed fix attempts in your validation session.
 
 ---
 
@@ -29,7 +29,7 @@ This is a human-completed artifact. It is the upstream boundary contract for PIK
 
 | Gate | What Failure Looks Like | Typical Cause | Remediation |
 |------|------------------------|---------------|-------------|
-| problem_defined | Problem statement absent, or describes a feature or solution | Solution written instead of problem | Rewrite to describe the observed gap, pain, or constraint — not what to build |
+| problem_defined | Problem statement absent, or describes a feature or solution | Solution written instead of problem | Rewrite to describe the observed gap, pain, or constraint: not what to build |
 | users_identified | User group absent or described only as "all users" | Insufficient specificity in audience definition | Name the specific user segment(s) with observable characteristics that distinguish them |
 | urgency_stated | Business urgency or timing not present | Field treated as optional | Add urgency context: the driver (deadline, competitor move, regulation), timing, and consequences of delay |
 | evidence_present | No supporting data cited | Assumption that the problem is widely understood | Attach at least one piece of evidence: a research finding, support ticket volume, or a specific metric |
@@ -68,12 +68,12 @@ This is a human-completed artifact. It is the upstream boundary contract for PIK
 
 | Gate | What Failure Looks Like | Typical Cause | Remediation |
 |------|------------------------|---------------|-------------|
-| assumption_inventory | Fewer than 3 assumptions cataloged for a non-trivial hypothesis | Assumptions not fully surfaced | Run `assumption-stress-test-prompt.md` before freezing; aim for comprehensive coverage of user, market, and feasibility assumptions |
+| assumption_inventory | Fewer than 3 assumptions cataloged for a non-trivial hypothesis | Assumptions not fully surfaced | Run `assumption-stress-test-prompt.md` before freezing; aim for complete coverage of user, market, and feasibility assumptions |
 | source_traceability | Assumptions cite "PFD" without a section reference (should be "PFD §3 UG-1") | Lazy referencing during register population | Update each assumption's Source field to include the specific section number and item ID |
 | risk_assessment | Risk ratings absent or every assumption rated "low" | Risk-aversion in self-assessment | Apply the risk rating criteria from the spec honestly; high-risk assumptions are expected and acceptable |
 | high_risk_validation | High-risk assumptions have no validation plan | Validation planning deferred | Add an explicit validation approach for each high-risk assumption before freezing the AR |
 | no_scope_expansion | New assumptions reference problems not established in PFD or VH | Scope drift during assumption surfacing | Remove out-of-scope assumptions; the AR catalogs assumptions about the established problem only |
-| no_solutions | Assumptions describe implementation choices rather than unknowns | Solution thinking reframed as assumptions | Reframe as assumptions about user behavior, market conditions, or feasibility — not design choices |
+| no_solutions | Assumptions describe implementation choices rather than unknowns | Solution thinking reframed as assumptions | Reframe as assumptions about user behavior, market conditions, or feasibility: not design choices |
 
 ---
 
