@@ -12,14 +12,15 @@ This kit transforms a product problem into a validated, engineering-ready Produc
 4. **Experiment Log** — Records assumption validation results and evidence
 5. **Discovery PRD** — Engineering-ready requirements that satisfy the Engineering Execution Kit's PRD specification
 
-Two utility prompts support the flow:
+The **Work Classification Record (WCR)** is a governed artifact required at Step 0. It classifies incoming work, records the routing decision (full discovery, direct intake, or bypass), and is referenced by the Engineering Execution Kit's Kit Entry Record (KER). It has a spec, template, prompt, and validator like every governed artifact.
 
-- **Work Classification** — Routes incoming work to the right process (avoids busywork)
+One utility prompt supports the flow:
+
 - **Assumption Stress Test** — Adversarial analysis to strengthen assumptions before experiments
 
 ## Quick start
 
-1. Optionally run the [Work Classification Prompt](docs/prompts/work-classification-prompt.md) to determine if this work needs full discovery
+1. Complete the [Work Classification Record (WCR)](docs/artifacts/work-classification-template.md) — required at Step 0; classify the incoming work, record the routing decision, and freeze before proceeding
 2. Fill out the [Discovery Intake Form](docs/artifacts/discovery-intake-template.md)
 3. Follow the [Playbook](docs/playbook.md) to generate, validate, and freeze each artifact in sequence
 4. See [How to Use with AI](docs/how-to-use-with-ai.md) for step-by-step AI session instructions
@@ -39,6 +40,7 @@ Two utility prompts support the flow:
 
 | Artifact | Spec | Template | Prompt | Validator |
 |----------|------|----------|--------|-----------|
+| Work Classification Record | [spec](docs/specs/work-classification-spec.md) | [template](docs/artifacts/work-classification-template.md) | [prompt](docs/prompts/work-classification-prompt.md) | [validator](docs/validators/work-classification-validator.md) |
 | Problem Framing | [spec](docs/specs/problem-framing-spec.md) | [template](docs/artifacts/problem-framing-template.md) | [prompt](docs/prompts/problem-framing-prompt.md) | [validator](docs/validators/problem-framing-validator.md) |
 | Value Hypothesis | [spec](docs/specs/value-hypothesis-spec.md) | [template](docs/artifacts/value-hypothesis-template.md) | [prompt](docs/prompts/value-hypothesis-prompt.md) | [validator](docs/validators/value-hypothesis-validator.md) |
 | Assumption Register | [spec](docs/specs/assumption-register-spec.md) | [template](docs/artifacts/assumption-register-template.md) | [prompt](docs/prompts/assumption-register-prompt.md) | [validator](docs/validators/assumption-register-validator.md) |
@@ -48,8 +50,7 @@ Two utility prompts support the flow:
 ## Utility prompts
 
 | Prompt | Purpose |
-|--------|---------|
-| [Work Classification](docs/prompts/work-classification-prompt.md) | Classify incoming work and route to appropriate process |
+|--------|---------| 
 | [Brownfield Analysis](docs/prompts/brownfield-analysis-prompt.md) | Analyze existing systems to pre-fill intake forms |
 | [Stakeholder Alignment](docs/prompts/stakeholder-alignment-prompt.md) | Surface and resolve conflicting stakeholder perspectives |
 | [Assumption Stress Test](docs/prompts/assumption-stress-test-prompt.md) | Adversarial analysis of assumptions before experiments |
