@@ -59,7 +59,7 @@ Two utility prompts support the flow:
 ## Boundary contracts
 
 - **Upstream:** Discovery Intake Form validated against [intake spec](docs/specs/discovery-intake-spec.md) (6 hard gates)
-- **Downstream:** Produces a frozen Discovery PRD for the [Engineering Execution Kit](https://github.com/your-org/aieos-engineering-execution-kit) (8 hard gates)
+- **Downstream:** Produces a frozen Discovery PRD for the [Engineering Execution Kit](https://github.com/your-org/aieos-engineering-execution) (8 hard gates)
 
 ## License
 

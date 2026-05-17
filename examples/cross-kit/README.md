@@ -125,7 +125,7 @@ Full protocol is documented in:
 
 The Engineering Execution Kit includes a complete worked example for a different scenario (a generic internal reference data service). It demonstrates the full EEK artifact flow from PRD through ORD, including validator outputs at each step.
 
-**Location:** `aieos-engineering-execution-kit/examples/end-to-end/example-01-generic-service/`
+**Location:** `aieos-engineering-execution/examples/end-to-end/example-01-generic-service/`
 
 That example uses Path B entry (direct Product Brief → PRD generation). The TaskFlow handoff above uses Path A entry (frozen DPRD placed directly). The EEK artifact flow after the PRD slot is identical for both paths.
 

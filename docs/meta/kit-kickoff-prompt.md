@@ -2,7 +2,7 @@
 
 > **Meta document.** This is the bootstrapping prompt used to create this kit. It is preserved here as a record of the kit's genesis and as a reference for how to bootstrap a new AIEOS kit. It is not a governed artifact and has no spec, validator, or prompt.
 >
-> Originally authored in the Engineering Execution Kit (`aieos-engineering-execution-kit`) as the upstream kickoff specification. Moved to this kit's `docs/meta/` directory as the authoritative home for this historical record.
+> Originally authored in the Engineering Execution Kit (`aieos-engineering-execution`) as the upstream kickoff specification. Moved to this kit's `docs/meta/` directory as the authoritative home for this historical record.
 
 Paste this entire document into the Claude session for your new `aieos-product-intelligence-kit` project. It contains everything the AI needs to bootstrap the kit correctly.
 
@@ -327,7 +327,7 @@ Kit repositories follow the pattern: `aieos-{layer-name}-kit`
 | Strategic Direction | `aieos-strategic-direction-kit` |
 | Product Intelligence | `aieos-product-intelligence-kit` |
 | Flow Control | `aieos-flow-control-kit` |
-| Engineering Execution | `aieos-engineering-execution-kit` |
+| Engineering Execution | `aieos-engineering-execution` |
 | Release & Exposure | `aieos-release-exposure-kit` |
 | Reliability & Resilience | `aieos-reliability-resilience-kit` |
 | Insight & Evolution | `aieos-insight-evolution-kit` |

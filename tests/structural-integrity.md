@@ -175,7 +175,7 @@ Utility prompts are not governed artifacts — they do not require the four-file
 
 ## 9. Cross-Kit Handoff Tests
 
-These checks verify the interface between the Product Intelligence Kit and the Engineering Execution Kit (aieos-engineering-execution-kit). They must pass for the inter-kit handoff to be trustworthy.
+These checks verify the interface between the Product Intelligence Kit and the Engineering Execution Kit (aieos-engineering-execution). They must pass for the inter-kit handoff to be trustworthy.
 
 ### 9.1 Downstream Handoff Mechanics Documented
 
@@ -215,14 +215,14 @@ These checks verify the interface between the Product Intelligence Kit and the E
 | Check | Expected | Verified | Status |
 |-------|----------|----------|--------|
 | Kickoff document exists in PIK | `docs/meta/kit-kickoff-prompt.md` exists in this repo | Yes | PASS |
-| Kickoff document is NOT in EEK | `aieos-engineering-execution-kit/docs/product-intelligence-kit-kickoff.md` does not exist | Yes | PASS |
+| Kickoff document is NOT in EEK | `aieos-engineering-execution/docs/product-intelligence-kit-kickoff.md` does not exist | Yes | PASS |
 
 ### 9.5 Governance Model Sync
 
 | Check | Expected | Verified | Status |
 |-------|----------|----------|--------|
 | Governance model sync rule in PIK CLAUDE.md | `CLAUDE.md` contains governance model sync requirement | Yes | PASS |
-| Governance model sync rule in EEK CLAUDE.md | `aieos-engineering-execution-kit/CLAUDE.md` contains governance model sync requirement | Yes | PASS |
+| Governance model sync rule in EEK CLAUDE.md | `aieos-engineering-execution/CLAUDE.md` contains governance model sync requirement | Yes | PASS |
 | Governance model files are structurally equivalent | Both `governance-model.md` files define the same 15 sections with same content | Yes | PASS |
 
 ### 9.6 Cross-Kit Example Completeness
@@ -234,7 +234,7 @@ These checks verify the interface between the Product Intelligence Kit and the E
 | Example uses same scenario as PIK examples | README references `examples/06-discovery-prd.md` (DPRD-TASKFLOW-NOTIF-001) as handoff artifact | Yes | PASS |
 | Example covers PASS and FAIL branches | README documents both paths: PASS → freeze + continue; FAIL → return to PIK | Yes | PASS |
 | Example documents 01-prd-validation.json placement | README specifies file is saved in consuming project's `docs/sdlc/` | Yes | PASS |
-| Example references EEK end-to-end example | README points readers to `aieos-engineering-execution-kit/examples/end-to-end/example-01-generic-service/` | Yes | PASS |
+| Example references EEK end-to-end example | README points readers to `aieos-engineering-execution/examples/end-to-end/example-01-generic-service/` | Yes | PASS |
 
 ---
 
