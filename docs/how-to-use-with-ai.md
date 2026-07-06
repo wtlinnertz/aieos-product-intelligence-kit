@@ -11,7 +11,6 @@ This guide explains how to use AI assistants to generate and validate Product In
 3. **Include full inputs**. Always include complete frozen upstream artifacts; do not summarize
 4. **Human in the loop**. AI generates and validates; humans review and freeze
 
-
 ## Session Setup
 
 ### For Generation Sessions
@@ -54,7 +53,6 @@ Include these files in the AI session context:
 2. The **inputs** specified by the prompt (e.g., work request, frozen artifacts)
 
 Utility prompts do not produce governed artifacts. Their output is analysis for human consumption.
-
 
 ## Step-by-Step Workflow
 
@@ -285,7 +283,6 @@ Utility prompts do not produce governed artifacts. Their output is analysis for 
 > Compare these initiatives across problem severity, value confidence, risk profile, strategic alignment, and scope. Produce a comparison matrix, sequencing recommendations, and risk-adjusted ranking.
 
 **Output:** Use the analysis to support portfolio prioritization decisions. The prompt does not make the decision. It presents structured evidence for human decision-makers.
-
 
 ## Tips
 

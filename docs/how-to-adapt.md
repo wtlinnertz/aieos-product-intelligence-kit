@@ -37,7 +37,6 @@ You must not:
 - Remove references to specs and templates
 - Add instructions that contradict the spec
 
-
 ## What Must Not Be Adapted
 
 ### Specs (Core Rules Fixed)
@@ -54,7 +53,6 @@ The five-artifact sequence (PFD → VH → AR → EL → DPRD) and the freeze-be
 
 ### Hard Gates (Quality Bar Fixed)
 Hard gates define the minimum quality bar. Removing a hard gate lowers the quality floor for all artifacts. Add gates if your organization needs stricter standards, but do not remove existing ones.
-
 
 ## Common Adaptations
 
@@ -94,7 +92,6 @@ When mapping kit concepts to specific tools (Jira, Notion, Confluence, etc.):
 - Create files in `docs/bindings/` (create the directory if needed)
 - Keep bindings out of specs, templates, prompts, and validators
 - Example: `docs/bindings/jira-mapping.md` maps PFD/VH/AR/DPRD to Jira issue types
-
 
 ## Versioning Your Adaptations
 
