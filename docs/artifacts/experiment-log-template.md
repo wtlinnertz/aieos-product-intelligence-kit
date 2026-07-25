@@ -5,10 +5,11 @@
 | Field | Value |
 |-------|-------|
 | Artifact ID | EL-{PROJECT}-{NNN} |
+| Owner | {owner} |
 | Version | {version} |
 | Date | {date} |
 | Author | {author} |
-| Status | Draft / Validated / Freeze Pending / Frozen |
+| Status | DRAFT |
 | Upstream PFD | {PFD artifact ID} |
 | Upstream VH | {VH artifact ID} |
 | Upstream AR | {AR artifact ID} |

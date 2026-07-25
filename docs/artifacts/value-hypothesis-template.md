@@ -5,10 +5,11 @@
 | Field | Value |
 |-------|-------|
 | Artifact ID | VH-{PROJECT}-{NNN} |
+| Owner | {owner} |
 | Version | {version} |
 | Date | {date} |
 | Author | {author} |
-| Status | Draft / Validated / Freeze Pending / Frozen |
+| Status | DRAFT |
 | Upstream PFD | {PFD artifact ID} |
 | Governance Model Version | 1.0 |
 | Prompt Version | {prompt version} |
