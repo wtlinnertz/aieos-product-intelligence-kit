@@ -8,13 +8,18 @@ Fill in what you know. Leave unknown sections blank — the generation prompts w
 
 ## Document Control
 
-- Date:
-- Author:
-- Initiative Name:
-- Governance Model Version: 1.0
-- Prompt Version: N/A
-- Spec Version: {spec version}
-- Principles Version: {principles file versions}
+| Field | Value |
+|-------|-------|
+| Artifact ID | N/A |
+| Owner | {owner} |
+| Status | DRAFT |
+| Date | |
+| Author | |
+| Initiative Name | |
+| Governance Model Version | 1.0 |
+| Prompt Version | N/A |
+| Spec Version | {spec version} |
+| Principles Version | {principles file versions} |
 
 ---
 

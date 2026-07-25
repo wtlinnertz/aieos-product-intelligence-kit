@@ -8,14 +8,18 @@ This record is **human-authored** (optionally AI-assisted via `work-classificati
 
 ## Document Control
 
-- Record ID: (e.g., WCR-2026-001)
-- Date:
-- Classified By:
-- Work Request Summary: (1-2 sentences describing the incoming work in concrete terms — what is being requested and by whom)
-- Governance Model Version: 1.0
-- Prompt Version: N/A
-- Spec Version: {spec version}
-- Principles Version: {principles file versions}
+| Field | Value |
+|-------|-------|
+| Artifact ID | (e.g., WCR-2026-001) |
+| Owner | {owner} |
+| Status | DRAFT |
+| Date | |
+| Classified By | |
+| Work Request Summary | (1-2 sentences describing the incoming work in concrete terms — what is being requested and by whom) |
+| Governance Model Version | 1.0 |
+| Prompt Version | N/A |
+| Spec Version | {spec version} |
+| Principles Version | {principles file versions} |
 
 ---
 
